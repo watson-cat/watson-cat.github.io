@@ -13,7 +13,23 @@
 <meta name="twitter:title" content="Search">
 <meta name="twitter:description" content=""><link rel="alternate" type="application/json" href="https://eoezora.github.io/search/index.json">
     <link rel="shortcut icon" href="icons/icon.ico" />
-<link rel="preload" href="https://eoezora.github.io/search/index.json" as="fetch" crossorigin="anonymous">
+
+<style>
+     :root {
+        --article-font-family: 'JetBrains Mono', var(--base-font-family);
+    }   
+</style>
+</style>
+
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@600&display=swap";
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+        document.head.appendChild(customFont);
+    }());
+</script><link rel="preload" href="https://eoezora.github.io/search/index.json" as="fetch" crossorigin="anonymous">
     </head>
     <body class="template-search">
     <script>
