@@ -1,17 +1,29 @@
 <!DOCTYPE html>
 <html lang="en-us" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='文章简介'><title>第一篇测试文章</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='多表查询 连接查询 内连接 获取两表的交集数据
+1 2 3 4 5 -- 隐式写法 SELECT 字段列表 FROM 表1, 表2... WHERE 条件; -- 显示写法 SELECT 字段列表 FROM 表1 INNER JOIN 表2 ON 条件 外连接 左外连接: 相当于查询A表所有数据和交集部分的数据
+右外连接: 相当于查询B表所有数据和交集部分的数据
+1 2 3 4 5 -- 左外连接 SELECT 字段列表 FROM 表1 LEFT OUTER JOIN 表2 ON 条件 -- 右外连接 SELECT 字段列表 FROM 表1 RIGHT OUTER JOIN 表2 ON 条件 子查询 概念：查询中嵌套查询,根据查询结果不同，作用不同分为 单行单列，多行单列，多行多列
+1 2 3 4 5 6 7 8 9 10 11 -- 单行单列: 作为条件值 使用 = !'><title>Mysql笔记-数据库设计-多表查询</title>
 
-<link rel='canonical' href='https://eoezora.github.io/posts/a-test-post/'>
+<link rel='canonical' href='https://eoezora.github.io/posts/mysql-note/mysql-note-4/'>
 
-<link rel="stylesheet" href="/scss/style.min.5a8e892f6fa14515e9065eee1f5d2e05302606ec7f11750b2fb95198f9cdcbfd.css"><meta property='og:title' content='第一篇测试文章'>
-<meta property='og:description' content='文章简介'>
-<meta property='og:url' content='https://eoezora.github.io/posts/a-test-post/'>
+<link rel="stylesheet" href="/scss/style.min.5a8e892f6fa14515e9065eee1f5d2e05302606ec7f11750b2fb95198f9cdcbfd.css"><meta property='og:title' content='Mysql笔记-数据库设计-多表查询'>
+<meta property='og:description' content='多表查询 连接查询 内连接 获取两表的交集数据
+1 2 3 4 5 -- 隐式写法 SELECT 字段列表 FROM 表1, 表2... WHERE 条件; -- 显示写法 SELECT 字段列表 FROM 表1 INNER JOIN 表2 ON 条件 外连接 左外连接: 相当于查询A表所有数据和交集部分的数据
+右外连接: 相当于查询B表所有数据和交集部分的数据
+1 2 3 4 5 -- 左外连接 SELECT 字段列表 FROM 表1 LEFT OUTER JOIN 表2 ON 条件 -- 右外连接 SELECT 字段列表 FROM 表1 RIGHT OUTER JOIN 表2 ON 条件 子查询 概念：查询中嵌套查询,根据查询结果不同，作用不同分为 单行单列，多行单列，多行多列
+1 2 3 4 5 6 7 8 9 10 11 -- 单行单列: 作为条件值 使用 = !'>
+<meta property='og:url' content='https://eoezora.github.io/posts/mysql-note/mysql-note-4/'>
 <meta property='og:site_name' content='学習のメモ'>
-<meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='Java语言' /><meta property='article:tag' content='笔记' /><meta property='article:published_time' content='2022-08-10T01:00:00&#43;02:00'/><meta property='article:modified_time' content='2022-08-10T01:00:00&#43;02:00'/>
-<meta name="twitter:title" content="第一篇测试文章">
-<meta name="twitter:description" content="文章简介">
+<meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='mysql' /><meta property='article:tag' content='笔记' /><meta property='article:published_time' content='2022-10-02T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2022-10-02T00:00:00&#43;00:00'/>
+<meta name="twitter:title" content="Mysql笔记-数据库设计-多表查询">
+<meta name="twitter:description" content="多表查询 连接查询 内连接 获取两表的交集数据
+1 2 3 4 5 -- 隐式写法 SELECT 字段列表 FROM 表1, 表2... WHERE 条件; -- 显示写法 SELECT 字段列表 FROM 表1 INNER JOIN 表2 ON 条件 外连接 左外连接: 相当于查询A表所有数据和交集部分的数据
+右外连接: 相当于查询B表所有数据和交集部分的数据
+1 2 3 4 5 -- 左外连接 SELECT 字段列表 FROM 表1 LEFT OUTER JOIN 表2 ON 条件 -- 右外连接 SELECT 字段列表 FROM 表1 RIGHT OUTER JOIN 表2 ON 条件 子查询 概念：查询中嵌套查询,根据查询结果不同，作用不同分为 单行单列，多行单列，多行多列
+1 2 3 4 5 6 7 8 9 10 11 -- 单行单列: 作为条件值 使用 = !">
     <link rel="shortcut icon" href="icons/icon.ico" />
 
 <style>
@@ -205,8 +217,8 @@
     
     <header class="article-category">
         
-            <a href="/categories/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" >
-                Java学习笔记
+            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" >
+                学习笔记
             </a>
         
     </header>
@@ -214,13 +226,9 @@
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/posts/a-test-post/">第一篇测试文章</a>
+            <a href="/posts/mysql-note/mysql-note-4/">Mysql笔记-数据库设计-多表查询</a>
         </h2>
     
-        
-        <h3 class="article-subtitle">
-            文章简介
-        </h3>
         
     </div>
 
@@ -237,7 +245,7 @@
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">Aug 10, 2022</time>
+                <time class="article-time--published">Oct 02, 2022</time>
             </div>
         
 
@@ -252,35 +260,47 @@
     <section class="article-content">
     
     
-    <h2 id="关键字">关键字</h2>
-<p>break 终止循环</p>
-<p>continue 跳过本次循环，回到循环条件判断</p>
-<h2 id="内存分配">内存分配</h2>
-<p>栈 方法运行时使用的内存，方法进栈运行，运行完出栈</p>
-<p>堆 new出来的都在堆内存中开新空间</p>
-<p>方法区 存储可以运行的class文件</p>
-<p>本地方法栈 Jvm在使用操作系统功能时使用、</p>
-<p>寄存器 给CPU使用，与开发无关</p>
-<h2 id="基本数据类型">基本数据类型</h2>
-<p>整数类型</p>
-<p>浮点数型</p>
-<p>布尔类型</p>
-<p>字符类型</p>
-<p><strong>数据存在自己的内存空间中，赋值给其他变量时是真实的值</strong></p>
+    <h2 id="多表查询">多表查询</h2>
+<h3 id="连接查询">连接查询</h3>
+<h4 id="内连接">内连接</h4>
+<p>获取两表的交集数据</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="n">100</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl"><span class="c1">//改变b不影响a
+<pre tabindex="0" class="chroma"><code class="language-mysql" data-lang="mysql"><span class="line"><span class="cl"><span class="c1">-- 隐式写法
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">SELECT</span><span class="w"> </span><span class="err">字段列表</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="err">表</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="err">表</span><span class="mi">2</span><span class="p">...</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="err">条件</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 显示写法
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">SELECT</span><span class="w"> </span><span class="err">字段列表</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="err">表</span><span class="mi">1</span><span class="w"> </span><span class="k">INNER</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="err">表</span><span class="mi">2</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="err">条件</span><span class="w">
 </span></span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="引用数据类型">引用数据类型</h2>
-<p>除了基本数据类型之外的所有类型，只要是new出来的都是引用数据类型，变量存储的是内存地址</p>
+</div><h4 id="外连接">外连接</h4>
+<p>左外连接: 相当于查询A表所有数据和交集部分的数据</p>
+<p>右外连接: 相当于查询B表所有数据和交集部分的数据</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-mysql" data-lang="mysql"><span class="line"><span class="cl"><span class="c1">-- 左外连接
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">SELECT</span><span class="w"> </span><span class="err">字段列表</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="err">表</span><span class="mi">1</span><span class="w"> </span><span class="k">LEFT</span><span class="w"> </span><span class="k">OUTER</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="err">表</span><span class="mi">2</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="err">条件</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 右外连接
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">SELECT</span><span class="w"> </span><span class="err">字段列表</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="err">表</span><span class="mi">1</span><span class="w"> </span><span class="k">RIGHT</span><span class="w"> </span><span class="k">OUTER</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="err">表</span><span class="mi">2</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="err">条件</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="子查询">子查询</h3>
+<p>概念：查询中嵌套查询,根据查询结果不同，作用不同分为 <strong>单行单列，多行单列，多行多列</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -293,19 +313,21 @@
 </span><span class="lnt"> 8
 </span><span class="lnt"> 9
 </span><span class="lnt">10
+</span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">a</span><span class="o">[]</span> <span class="o">=</span> <span class="o">{</span><span class="n">1</span><span class="o">,</span><span class="n">2</span><span class="o">,</span><span class="n">3</span><span class="o">,</span><span class="n">4</span><span class="o">,</span><span class="n">5</span><span class="o">,</span><span class="n">6</span><span class="o">};</span>
-</span></span><span class="line"><span class="cl">        <span class="n">a</span><span class="o">(</span><span class="n">a</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">a</span><span class="o">[</span><span class="n">0</span><span class="o">]);</span>
-</span></span><span class="line"><span class="cl">    <span class="o">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">a</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">v</span><span class="o">)</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">        <span class="c1">//此处的v是指向数组a的地址，
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">v</span><span class="o">[</span><span class="n">0</span><span class="o">]</span> <span class="o">=</span> <span class="n">100</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">    <span class="o">}</span>
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-mysql" data-lang="mysql"><span class="line"><span class="cl"><span class="c1">-- 单行单列: 作为条件值 使用 = != &gt; &lt; 进行条件判断
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">SELECT</span><span class="w"> </span><span class="err">字段列表</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="err">表</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="err">字段名</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="err">子查询语句</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 多行单列: 作为条件值
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">SELECT</span><span class="w"> </span><span class="err">字段列表</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="err">表</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="err">字段名</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="p">(</span><span class="err">子查询语句</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 多行多列: 作为虚拟表
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">SELECT</span><span class="w"> </span><span class="err">字段列表</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="p">(</span><span class="err">子查询语句</span><span class="p">)</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="err">条件</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 例子 查询工资大于 蔡徐坤 的数据
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">SELECT</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">users</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">money</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="n">money</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">infos</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&#34;蔡徐坤&#34;</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div>
 </section>
@@ -315,7 +337,7 @@
     
     <section class="article-tags">
         
-            <a href="/tags/java%E8%AF%AD%E8%A8%80/">Java语言</a>
+            <a href="/tags/mysql/">mysql</a>
         
             <a href="/tags/%E7%AC%94%E8%AE%B0/">笔记</a>
         
@@ -366,6 +388,67 @@
     
 
     
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/posts/mysql-note/mysql-note-3/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Mysql笔记-数据库设计-表之间的关系</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/posts/mysql-note/mysql-note-2/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Mysql笔记-事务</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/posts/mysql-note/mysql-note-2/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Mysql笔记-约束</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/posts/mysql-note/mysql-note-1/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Mysql笔记-单表查询</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
 
      
     
@@ -489,10 +572,17 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#关键字">关键字</a></li>
-    <li><a href="#内存分配">内存分配</a></li>
-    <li><a href="#基本数据类型">基本数据类型</a></li>
-    <li><a href="#引用数据类型">引用数据类型</a></li>
+    <li><a href="#多表查询">多表查询</a>
+      <ol>
+        <li><a href="#连接查询">连接查询</a>
+          <ol>
+            <li><a href="#内连接">内连接</a></li>
+            <li><a href="#外连接">外连接</a></li>
+          </ol>
+        </li>
+        <li><a href="#子查询">子查询</a></li>
+      </ol>
+    </li>
   </ol>
 </nav>
         </div>

@@ -1,17 +1,29 @@
 <!DOCTYPE html>
 <html lang="en-us" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='约束概念 约束是作用于表中列的规则，用于限制加入表的数据 约束的存在保证数据库数据的正确性，有限性和完整性 约束的分类 约束名称 功能描述 关键字 非空约束 保证列中数据不出现null NOT NULL 唯一约束 保证列中数据各不相同，唯一性 UNIQUE 主键约束 主键是一行数据的唯一标识，要求非空且唯一 PRIMARY KEY 默认约束 保存数据时,未指定就采用默认值 DEFAULT 外键约束 外键让两个表的数据之间建立连接，保证数据一致且完整 FOREIGN KEY 例子 1 2 3 4 5 6 7 8 9 10 11 12 -- 建表时对字段进行约束 CREATE TABLE emp( id INT PRIMARY KEY, -- 唯一主键 ename VARCHAR(60) NOT NULL UNIQUE, -- 非空且唯一 joindate DATE NOT NULL, -- 非空 salary DOUBLE(7,2) NOT NULL, -- 非空 bonus DOUBLE(7,2) DEFAULT 0, -- 默认为0 -- 部门id dept_id INT NOT NULL, -- 添加外键dept_id并关联dept表的id主键 CONSTRAINF fk_emp_dept FOREIGN KEY(dept_id) REFERENCES dept(id) ); 外键约束 员工表(emp)'><title>Mysql笔记-约束</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='事务概念 数据库的事务是一种机制，一个操作序列，包含一组数据库操作命令 事务把所有命令作为一个整体向系统提交或撤销。这组命令要么同时成功，要么同时失败 1 2 3 4 5 6 7 8 9 10 11 -- 定义事务开启 -- 事务开启后所作的操作为临时性的 BEGIN; -- 也可以使用 START TRANSACTION; UPDATE account SET money = money &#43; 1000 WHERE name = &amp;#39;蔡徐坤&amp;#39;; 假设这行语句错误 UPDATE account SET money = money - 8000 WHERE name = &amp;#39;孙笑川&amp;#39;; -- 提交事务 COMMIT; -- 回滚操作 ROLLBACK; 事务四大特性 原子性：事务是不可分割的最小操作单位，要么同时成功，要么同时失败；
+一致性：事务完成后，必须是所有数据都保持一致状态
+隔离性：多个事务之间，操作的可见性。每个事务之间操作隔离
+持久性：事务一旦提交或者回滚，他对数据库的改变就是永久的
+1 2 3 4 5 -- 查看事务默认提交方式 SELECT @@autocommit; -- 修改默认提交方式 - 1 自动提交 - 0 手动提交 set @@autocommit = 0; '><title>Mysql笔记-事务</title>
 
 <link rel='canonical' href='https://eoezora.github.io/posts/mysql-note/mysql-note-2/'>
 
-<link rel="stylesheet" href="/scss/style.min.5a8e892f6fa14515e9065eee1f5d2e05302606ec7f11750b2fb95198f9cdcbfd.css"><meta property='og:title' content='Mysql笔记-约束'>
-<meta property='og:description' content='约束概念 约束是作用于表中列的规则，用于限制加入表的数据 约束的存在保证数据库数据的正确性，有限性和完整性 约束的分类 约束名称 功能描述 关键字 非空约束 保证列中数据不出现null NOT NULL 唯一约束 保证列中数据各不相同，唯一性 UNIQUE 主键约束 主键是一行数据的唯一标识，要求非空且唯一 PRIMARY KEY 默认约束 保存数据时,未指定就采用默认值 DEFAULT 外键约束 外键让两个表的数据之间建立连接，保证数据一致且完整 FOREIGN KEY 例子 1 2 3 4 5 6 7 8 9 10 11 12 -- 建表时对字段进行约束 CREATE TABLE emp( id INT PRIMARY KEY, -- 唯一主键 ename VARCHAR(60) NOT NULL UNIQUE, -- 非空且唯一 joindate DATE NOT NULL, -- 非空 salary DOUBLE(7,2) NOT NULL, -- 非空 bonus DOUBLE(7,2) DEFAULT 0, -- 默认为0 -- 部门id dept_id INT NOT NULL, -- 添加外键dept_id并关联dept表的id主键 CONSTRAINF fk_emp_dept FOREIGN KEY(dept_id) REFERENCES dept(id) ); 外键约束 员工表(emp)'>
+<link rel="stylesheet" href="/scss/style.min.5a8e892f6fa14515e9065eee1f5d2e05302606ec7f11750b2fb95198f9cdcbfd.css"><meta property='og:title' content='Mysql笔记-事务'>
+<meta property='og:description' content='事务概念 数据库的事务是一种机制，一个操作序列，包含一组数据库操作命令 事务把所有命令作为一个整体向系统提交或撤销。这组命令要么同时成功，要么同时失败 1 2 3 4 5 6 7 8 9 10 11 -- 定义事务开启 -- 事务开启后所作的操作为临时性的 BEGIN; -- 也可以使用 START TRANSACTION; UPDATE account SET money = money &#43; 1000 WHERE name = &amp;#39;蔡徐坤&amp;#39;; 假设这行语句错误 UPDATE account SET money = money - 8000 WHERE name = &amp;#39;孙笑川&amp;#39;; -- 提交事务 COMMIT; -- 回滚操作 ROLLBACK; 事务四大特性 原子性：事务是不可分割的最小操作单位，要么同时成功，要么同时失败；
+一致性：事务完成后，必须是所有数据都保持一致状态
+隔离性：多个事务之间，操作的可见性。每个事务之间操作隔离
+持久性：事务一旦提交或者回滚，他对数据库的改变就是永久的
+1 2 3 4 5 -- 查看事务默认提交方式 SELECT @@autocommit; -- 修改默认提交方式 - 1 自动提交 - 0 手动提交 set @@autocommit = 0; '>
 <meta property='og:url' content='https://eoezora.github.io/posts/mysql-note/mysql-note-2/'>
 <meta property='og:site_name' content='学習のメモ'>
 <meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='mysql' /><meta property='article:tag' content='笔记' /><meta property='article:published_time' content='2022-09-29T21:44:20&#43;08:00'/><meta property='article:modified_time' content='2022-09-29T21:44:20&#43;08:00'/>
-<meta name="twitter:title" content="Mysql笔记-约束">
-<meta name="twitter:description" content="约束概念 约束是作用于表中列的规则，用于限制加入表的数据 约束的存在保证数据库数据的正确性，有限性和完整性 约束的分类 约束名称 功能描述 关键字 非空约束 保证列中数据不出现null NOT NULL 唯一约束 保证列中数据各不相同，唯一性 UNIQUE 主键约束 主键是一行数据的唯一标识，要求非空且唯一 PRIMARY KEY 默认约束 保存数据时,未指定就采用默认值 DEFAULT 外键约束 外键让两个表的数据之间建立连接，保证数据一致且完整 FOREIGN KEY 例子 1 2 3 4 5 6 7 8 9 10 11 12 -- 建表时对字段进行约束 CREATE TABLE emp( id INT PRIMARY KEY, -- 唯一主键 ename VARCHAR(60) NOT NULL UNIQUE, -- 非空且唯一 joindate DATE NOT NULL, -- 非空 salary DOUBLE(7,2) NOT NULL, -- 非空 bonus DOUBLE(7,2) DEFAULT 0, -- 默认为0 -- 部门id dept_id INT NOT NULL, -- 添加外键dept_id并关联dept表的id主键 CONSTRAINF fk_emp_dept FOREIGN KEY(dept_id) REFERENCES dept(id) ); 外键约束 员工表(emp)">
+<meta name="twitter:title" content="Mysql笔记-事务">
+<meta name="twitter:description" content="事务概念 数据库的事务是一种机制，一个操作序列，包含一组数据库操作命令 事务把所有命令作为一个整体向系统提交或撤销。这组命令要么同时成功，要么同时失败 1 2 3 4 5 6 7 8 9 10 11 -- 定义事务开启 -- 事务开启后所作的操作为临时性的 BEGIN; -- 也可以使用 START TRANSACTION; UPDATE account SET money = money &#43; 1000 WHERE name = &amp;#39;蔡徐坤&amp;#39;; 假设这行语句错误 UPDATE account SET money = money - 8000 WHERE name = &amp;#39;孙笑川&amp;#39;; -- 提交事务 COMMIT; -- 回滚操作 ROLLBACK; 事务四大特性 原子性：事务是不可分割的最小操作单位，要么同时成功，要么同时失败；
+一致性：事务完成后，必须是所有数据都保持一致状态
+隔离性：多个事务之间，操作的可见性。每个事务之间操作隔离
+持久性：事务一旦提交或者回滚，他对数据库的改变就是永久的
+1 2 3 4 5 -- 查看事务默认提交方式 SELECT @@autocommit; -- 修改默认提交方式 - 1 自动提交 - 0 手动提交 set @@autocommit = 0; ">
     <link rel="shortcut icon" href="icons/icon.ico" />
 
 <style>
@@ -214,7 +226,7 @@
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/posts/mysql-note/mysql-note-2/">Mysql笔记-约束</a>
+            <a href="/posts/mysql-note/mysql-note-2/">Mysql笔记-事务</a>
         </h2>
     
         
@@ -448,12 +460,38 @@
             
                 
 <article class="">
+    <a href="/posts/mysql-note/mysql-note-4/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Mysql笔记-数据库设计-多表查询</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
     <a href="/posts/mysql-note/mysql-note-3/">
         
         
 
         <div class="article-details">
             <h2 class="article-title">Mysql笔记-数据库设计-表之间的关系</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/posts/mysql-note/mysql-note-2/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Mysql笔记-事务</h2>
         </div>
     </a>
 </article>
