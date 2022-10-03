@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>PaperMod on 学习笔记</title>
+    <link>https://eoezora.github.io/series/papermod/</link>
+    <description>Recent content in PaperMod on 学习笔记</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Fri, 30 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://eoezora.github.io/series/papermod/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mysql笔记-数据库设计-表之间的关系</title>
+      <link>https://eoezora.github.io/posts/mysql-note/%E8%A1%A8%E4%B9%8B%E9%97%B4%E5%85%B3%E7%B3%BB/</link>
+      <pubDate>Fri, 30 Sep 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://eoezora.github.io/posts/mysql-note/%E8%A1%A8%E4%B9%8B%E9%97%B4%E5%85%B3%E7%B3%BB/</guid>
+      <description>Read Install and Update instructions here</description>
+      <content:encoded><![CDATA[<h2 id="表之间的关系">表之间的关系</h2>
+<h3 id="一对一"><strong>一对一</strong></h3>
+<p>例如，用户表和用户信息表(不常用的信息)</p>
+<p>实现方式: 在任意一方加入外键，关联另一方主键，并且设置外键为<strong>唯一</strong>(<strong>UNIQUE</strong>)</p>
+<h3 id="一对多多对一"><strong>一对多(多对一)</strong></h3>
+<p>例如：一个部门有多个员工，多个员工属于一个部门</p>
+<p>实现方式：在<strong>多的一方</strong>添加一个外键，指向<strong>一的主键</strong>,例如 在员工表里添加一个部门ID外键，指向部门表的主键</p>
+<h3 id="多对多"><strong>多对多</strong></h3>
+<p>例如：商品和订单，一个订单多个商品，一个商品多个订单</p>
+<p>实现方式：建立第三张中间表，中间表至少包含<strong>两个外键</strong>，分别关联两方主键</p>
+<p><strong>订单表</strong></p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>支付金额</th>
+<th>支付方式</th>
+<th>状态</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>114514.0</td>
+<td>WeChatPay</td>
+<td>未支付</td>
+</tr>
+<tr>
+<td>2</td>
+<td>19198.0</td>
+<td>AliPay</td>
+<td>已支付</td>
+</tr>
+</tbody>
+</table>
+<p><strong>商品表</strong></p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>商品名</th>
+<th>价格</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>林檎</td>
+<td>114514</td>
+</tr>
+<tr>
+<td>2</td>
+<td>迎宾酒</td>
+<td>1919810</td>
+</tr>
+</tbody>
+</table>
+<p><strong>中间表</strong></p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>订单id(外键)</th>
+<th>商品id(外键)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>2</td>
+<td>1</td>
+<td>2</td>
+</tr>
+<tr>
+<td>3</td>
+<td>2</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p><strong>注解：以上方三表为例，中间表记录订单与商品的外键。两个订单id为1的数据代表着这个订单有两件商品</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-mysql" data-lang="mysql"><span class="line"><span class="cl"><span class="c1">-- 订单与商品关联例子
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">exists</span><span class="w"> </span><span class="nf">orders</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">id</span><span class="w">      </span><span class="kt">int</span><span class="w"> </span><span class="kp">auto_increment</span><span class="w"> </span><span class="k">primary</span><span class="w"> </span><span class="k">key</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">payment</span><span class="w"> </span><span class="kt">int</span><span class="w">         </span><span class="k">not</span><span class="w"> </span><span class="no">null</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">paytype</span><span class="w"> </span><span class="kt">varchar</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="no">null</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">status</span><span class="w">  </span><span class="kt">varchar</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="no">null</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">exists</span><span class="w"> </span><span class="nf">goods</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">id</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="kp">auto_increment</span><span class="w"> </span><span class="k">primary</span><span class="w"> </span><span class="k">key</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">name</span><span class="w">  </span><span class="kt">varchar</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="no">null</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">price</span><span class="w"> </span><span class="kt">int</span><span class="w">         </span><span class="k">not</span><span class="w"> </span><span class="no">null</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">exists</span><span class="w"> </span><span class="nf">tk_orders_goods</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">id</span><span class="w">       </span><span class="kt">int</span><span class="w"> </span><span class="kp">auto_increment</span><span class="w"> </span><span class="k">primary</span><span class="w"> </span><span class="k">key</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">order_id</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="no">null</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">good_id</span><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="no">null</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 添加外键
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">alter</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">tk_orders_goods</span><span class="w"> </span><span class="k">add</span><span class="w"> </span><span class="k">constraint</span><span class="w">  </span><span class="n">fk_order_id</span><span class="w"> </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="p">(</span><span class="n">order_id</span><span class="p">)</span><span class="w"> </span><span class="k">REFERENCES</span><span class="w"> </span><span class="nf">orders</span><span class="p">(</span><span class="n">id</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 添加外键
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">alter</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">tk_orders_goods</span><span class="w"> </span><span class="k">add</span><span class="w"> </span><span class="k">constraint</span><span class="w">  </span><span class="n">fk_good_id</span><span class="w"> </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="p">(</span><span class="n">good_id</span><span class="p">)</span><span class="w"> </span><span class="k">REFERENCES</span><span class="w"> </span><span class="nf">goods</span><span class="p">(</span><span class="n">id</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div>]]></content:encoded>
+    </item>
+    
+  </channel>
+</rss>
