@@ -2,22 +2,31 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://eoezora.github.io/tags/java/</loc>
+    <lastmod>2022-10-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://eoezora.github.io/posts/jdbc-note/api%E8%AF%A6%E8%A7%A3/</loc>
+    <lastmod>2022-10-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://eoezora.github.io/tags/jdbc/</loc>
+    <lastmod>2022-10-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://eoezora.github.io/tags/note/</loc>
+    <lastmod>2022-10-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://eoezora.github.io/posts/</loc>
+    <lastmod>2022-10-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://eoezora.github.io/tags/</loc>
+    <lastmod>2022-10-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://eoezora.github.io/</loc>
+    <lastmod>2022-10-03T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://eoezora.github.io/tags/mysql/</loc>
     <lastmod>2022-10-02T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://eoezora.github.io/posts/mysql-note/%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2/</loc>
-    <lastmod>2022-10-02T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://eoezora.github.io/tags/note/</loc>
-    <lastmod>2022-10-02T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://eoezora.github.io/posts/</loc>
-    <lastmod>2022-10-02T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://eoezora.github.io/tags/</loc>
-    <lastmod>2022-10-02T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://eoezora.github.io/</loc>
     <lastmod>2022-10-02T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://eoezora.github.io/posts/mysql-note/%E8%A1%A8%E4%B9%8B%E9%97%B4%E5%85%B3%E7%B3%BB/</loc>
@@ -29,11 +38,11 @@
     <loc>https://eoezora.github.io/posts/mysql-note/%E7%BA%A6%E6%9D%9F/</loc>
     <lastmod>2022-09-29T21:44:20+08:00</lastmod>
   </url><url>
-    <loc>https://eoezora.github.io/posts/%E7%BA%A6%E6%9D%9F/</loc>
-    <lastmod>2022-09-29T21:44:20+08:00</lastmod>
-  </url><url>
     <loc>https://eoezora.github.io/posts/mysql-note/%E5%8D%95%E8%A1%A8%E6%9F%A5%E8%AF%A2/</loc>
     <lastmod>2022-09-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://eoezora.github.io/about/</loc>
+    <lastmod>2021-11-06T14:57:28+08:00</lastmod>
   </url><url>
     <loc>https://eoezora.github.io/search/</loc>
   </url><url>
@@ -42,7 +51,5 @@
     <loc>https://eoezora.github.io/categories/</loc>
   </url><url>
     <loc>https://eoezora.github.io/series/</loc>
-  </url><url>
-    <loc>https://eoezora.github.io/about/</loc>
   </url>
 </urlset>

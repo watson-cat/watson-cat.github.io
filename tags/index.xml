@@ -1,11 +1,42 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Tags on 学习笔记</title>
+    <title>Tags on 学習のメモ</title>
     <link>https://eoezora.github.io/tags/</link>
-    <description>Recent content in Tags on 学习笔记</description>
+    <description>Recent content in Tags on 学習のメモ</description>
+    <image>
+      <url>https://eoezora.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://eoezora.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 02 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://eoezora.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 03 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://eoezora.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>java</title>
+      <link>https://eoezora.github.io/tags/java/</link>
+      <pubDate>Mon, 03 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://eoezora.github.io/tags/java/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>jdbc</title>
+      <link>https://eoezora.github.io/tags/jdbc/</link>
+      <pubDate>Mon, 03 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://eoezora.github.io/tags/jdbc/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>note</title>
+      <link>https://eoezora.github.io/tags/note/</link>
+      <pubDate>Mon, 03 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://eoezora.github.io/tags/note/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>mysql</title>
       <link>https://eoezora.github.io/tags/mysql/</link>
@@ -13,17 +44,6 @@
       
       <guid>https://eoezora.github.io/tags/mysql/</guid>
       <description></description>
-      <content:encoded><![CDATA[]]></content:encoded>
-    </item>
-    
-    <item>
-      <title>note</title>
-      <link>https://eoezora.github.io/tags/note/</link>
-      <pubDate>Sun, 02 Oct 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://eoezora.github.io/tags/note/</guid>
-      <description></description>
-      <content:encoded><![CDATA[]]></content:encoded>
     </item>
     
   </channel>
