@@ -8,10 +8,10 @@
     <lastBuildDate>Sun, 02 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://eoezora.github.io/tags/mysql/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Mysql笔记-数据库设计-多表查询</title>
-      <link>https://eoezora.github.io/posts/mysql-note/mysql-note-4/</link>
+      <link>https://eoezora.github.io/posts/mysql-note/%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2/</link>
       <pubDate>Sun, 02 Oct 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://eoezora.github.io/posts/mysql-note/mysql-note-4/</guid>
+      <guid>https://eoezora.github.io/posts/mysql-note/%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2/</guid>
       <description>多表查询 连接查询 内连接 获取两表的交集数据
 -- 隐式写法 SELECT 字段列表 FROM 表1, 表2... WHERE 条件; -- 显示写法 SELECT 字段列表 FROM 表1 INNER JOIN 表2 ON 条件 外连接 左外连接: 相当于查询A表所有数据和交集部分的数据
 右外连接: 相当于查询B表所有数据和交集部分的数据
@@ -51,11 +51,142 @@
     </item>
     
     <item>
+      <title>Mysql笔记-数据库设计-表之间的关系</title>
+      <link>https://eoezora.github.io/posts/mysql-note/%E8%A1%A8%E4%B9%8B%E9%97%B4%E5%85%B3%E7%B3%BB/</link>
+      <pubDate>Fri, 30 Sep 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://eoezora.github.io/posts/mysql-note/%E8%A1%A8%E4%B9%8B%E9%97%B4%E5%85%B3%E7%B3%BB/</guid>
+      <description>表之间的关系 一对一 例如，用户表和用户信息表(不常用的信息)
+实现方式: 在任意一方加入外键，关联另一方主键，并且设置外键为唯一(UNIQUE)
+一对多(多对一) 例如：一个部门有多个员工，多个员工属于一个部门
+实现方式：在多的一方添加一个外键，指向一的主键,例如 在员工表里添加一个部门ID外键，指向部门表的主键
+多对多 例如：商品和订单，一个订单多个商品，一个商品多个订单
+实现方式：建立第三张中间表，中间表至少包含两个外键，分别关联两方主键
+订单表
+id 支付金额 支付方式 状态 1 114514.0 WeChatPay 未支付 2 19198.0 AliPay 已支付 商品表
+id 商品名 价格 1 林檎 114514 2 迎宾酒 1919810 中间表
+id 订单id(外键) 商品id(外键) 1 1 1 2 1 2 3 2 1 注解：以上方三表为例，中间表记录订单与商品的外键。两个订单id为1的数据代表着这个订单有两件商品
+-- 订单与商品关联例子 create table if not exists orders ( id int auto_increment primary key, payment int not null, paytype varchar(20) not null, status varchar(20) not null ); create table if not exists goods ( id int auto_increment primary key, name varchar(60) not null, price int not null ); create table if not exists tk_orders_goods ( id int auto_increment primary key, order_id int not null, good_id int not null ); -- 添加外键 alter table tk_orders_goods add constraint fk_order_id FOREIGN KEY(order_id) REFERENCES orders(id); -- 添加外键 alter table tk_orders_goods add constraint fk_good_id FOREIGN KEY(good_id) REFERENCES goods(id); </description>
+      <content:encoded><![CDATA[<h2 id="表之间的关系">表之间的关系</h2>
+<h3 id="一对一"><strong>一对一</strong></h3>
+<p>例如，用户表和用户信息表(不常用的信息)</p>
+<p>实现方式: 在任意一方加入外键，关联另一方主键，并且设置外键为<strong>唯一</strong>(<strong>UNIQUE</strong>)</p>
+<h3 id="一对多多对一"><strong>一对多(多对一)</strong></h3>
+<p>例如：一个部门有多个员工，多个员工属于一个部门</p>
+<p>实现方式：在<strong>多的一方</strong>添加一个外键，指向<strong>一的主键</strong>,例如 在员工表里添加一个部门ID外键，指向部门表的主键</p>
+<h3 id="多对多"><strong>多对多</strong></h3>
+<p>例如：商品和订单，一个订单多个商品，一个商品多个订单</p>
+<p>实现方式：建立第三张中间表，中间表至少包含<strong>两个外键</strong>，分别关联两方主键</p>
+<p><strong>订单表</strong></p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>支付金额</th>
+<th>支付方式</th>
+<th>状态</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>114514.0</td>
+<td>WeChatPay</td>
+<td>未支付</td>
+</tr>
+<tr>
+<td>2</td>
+<td>19198.0</td>
+<td>AliPay</td>
+<td>已支付</td>
+</tr>
+</tbody>
+</table>
+<p><strong>商品表</strong></p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>商品名</th>
+<th>价格</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>林檎</td>
+<td>114514</td>
+</tr>
+<tr>
+<td>2</td>
+<td>迎宾酒</td>
+<td>1919810</td>
+</tr>
+</tbody>
+</table>
+<p><strong>中间表</strong></p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>订单id(外键)</th>
+<th>商品id(外键)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>2</td>
+<td>1</td>
+<td>2</td>
+</tr>
+<tr>
+<td>3</td>
+<td>2</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p><strong>注解：以上方三表为例，中间表记录订单与商品的外键。两个订单id为1的数据代表着这个订单有两件商品</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-mysql" data-lang="mysql"><span class="line"><span class="cl"><span class="c1">-- 订单与商品关联例子
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">exists</span><span class="w"> </span><span class="nf">orders</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">id</span><span class="w">      </span><span class="kt">int</span><span class="w"> </span><span class="kp">auto_increment</span><span class="w"> </span><span class="k">primary</span><span class="w"> </span><span class="k">key</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">payment</span><span class="w"> </span><span class="kt">int</span><span class="w">         </span><span class="k">not</span><span class="w"> </span><span class="no">null</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">paytype</span><span class="w"> </span><span class="kt">varchar</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="no">null</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">status</span><span class="w">  </span><span class="kt">varchar</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="no">null</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">exists</span><span class="w"> </span><span class="nf">goods</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">id</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="kp">auto_increment</span><span class="w"> </span><span class="k">primary</span><span class="w"> </span><span class="k">key</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">name</span><span class="w">  </span><span class="kt">varchar</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="no">null</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">price</span><span class="w"> </span><span class="kt">int</span><span class="w">         </span><span class="k">not</span><span class="w"> </span><span class="no">null</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">exists</span><span class="w"> </span><span class="nf">tk_orders_goods</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">id</span><span class="w">       </span><span class="kt">int</span><span class="w"> </span><span class="kp">auto_increment</span><span class="w"> </span><span class="k">primary</span><span class="w"> </span><span class="k">key</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">order_id</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="no">null</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">good_id</span><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="no">null</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 添加外键
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">alter</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">tk_orders_goods</span><span class="w"> </span><span class="k">add</span><span class="w"> </span><span class="k">constraint</span><span class="w">  </span><span class="n">fk_order_id</span><span class="w"> </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="p">(</span><span class="n">order_id</span><span class="p">)</span><span class="w"> </span><span class="k">REFERENCES</span><span class="w"> </span><span class="nf">orders</span><span class="p">(</span><span class="n">id</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 添加外键
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">alter</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">tk_orders_goods</span><span class="w"> </span><span class="k">add</span><span class="w"> </span><span class="k">constraint</span><span class="w">  </span><span class="n">fk_good_id</span><span class="w"> </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="p">(</span><span class="n">good_id</span><span class="p">)</span><span class="w"> </span><span class="k">REFERENCES</span><span class="w"> </span><span class="nf">goods</span><span class="p">(</span><span class="n">id</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div>]]></content:encoded>
+    </item>
+    
+    <item>
       <title>Mysql笔记-事务</title>
-      <link>https://eoezora.github.io/posts/mysql-note/mysql-note-2/</link>
+      <link>https://eoezora.github.io/posts/mysql-note/%E4%BA%8B%E5%8A%A1/</link>
       <pubDate>Thu, 29 Sep 2022 21:44:20 +0800</pubDate>
       
-      <guid>https://eoezora.github.io/posts/mysql-note/mysql-note-2/</guid>
+      <guid>https://eoezora.github.io/posts/mysql-note/%E4%BA%8B%E5%8A%A1/</guid>
       <description>事务概念 数据库的事务是一种机制，一个操作序列，包含一组数据库操作命令 事务把所有命令作为一个整体向系统提交或撤销。这组命令要么同时成功，要么同时失败 -- 定义事务开启 -- 事务开启后所作的操作为临时性的 BEGIN; -- 也可以使用 START TRANSACTION; UPDATE account SET money = money + 1000 WHERE name = &amp;#39;蔡徐坤&amp;#39;; 假设这行语句错误 UPDATE account SET money = money - 8000 WHERE name = &amp;#39;孙笑川&amp;#39;; -- 提交事务 COMMIT; -- 回滚操作 ROLLBACK; 事务四大特性 原子性：事务是不可分割的最小操作单位，要么同时成功，要么同时失败；
 一致性：事务完成后，必须是所有数据都保持一致状态
 隔离性：多个事务之间，操作的可见性。每个事务之间操作隔离
@@ -102,10 +233,10 @@
     
     <item>
       <title>Mysql笔记-约束</title>
-      <link>https://eoezora.github.io/posts/mysql-note/mysql-note-2/</link>
+      <link>https://eoezora.github.io/posts/mysql-note/%E7%BA%A6%E6%9D%9F/</link>
       <pubDate>Thu, 29 Sep 2022 21:44:20 +0800</pubDate>
       
-      <guid>https://eoezora.github.io/posts/mysql-note/mysql-note-2/</guid>
+      <guid>https://eoezora.github.io/posts/mysql-note/%E7%BA%A6%E6%9D%9F/</guid>
       <description>约束概念 约束是作用于表中列的规则，用于限制加入表的数据 约束的存在保证数据库数据的正确性，有限性和完整性 约束的分类 约束名称 功能描述 关键字 非空约束 保证列中数据不出现null NOT NULL 唯一约束 保证列中数据各不相同，唯一性 UNIQUE 主键约束 主键是一行数据的唯一标识，要求非空且唯一 PRIMARY KEY 默认约束 保存数据时,未指定就采用默认值 DEFAULT 外键约束 外键让两个表的数据之间建立连接，保证数据一致且完整 FOREIGN KEY 例子 -- 建表时对字段进行约束 CREATE TABLE emp( id INT PRIMARY KEY, -- 唯一主键 ename VARCHAR(60) NOT NULL UNIQUE, -- 非空且唯一 joindate DATE NOT NULL, -- 非空 salary DOUBLE(7,2) NOT NULL, -- 非空 bonus DOUBLE(7,2) DEFAULT 0, -- 默认为0 -- 部门id dept_id INT NOT NULL, -- 添加外键dept_id并关联dept表的id主键 CONSTRAINF fk_emp_dept FOREIGN KEY(dept_id) REFERENCES dept(id) ); 外键约束 员工表(emp)</description>
       <content:encoded><![CDATA[<h2 id="约束概念">约束概念</h2>
 <ul>
@@ -227,10 +358,10 @@
     
     <item>
       <title>Mysql笔记-单表查询</title>
-      <link>https://eoezora.github.io/posts/mysql-note/mysql-note-1/</link>
-      <pubDate>Thu, 29 Sep 2022 20:29:56 +0800</pubDate>
+      <link>https://eoezora.github.io/posts/mysql-note/%E5%8D%95%E8%A1%A8%E6%9F%A5%E8%AF%A2/</link>
+      <pubDate>Thu, 29 Sep 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://eoezora.github.io/posts/mysql-note/mysql-note-1/</guid>
+      <guid>https://eoezora.github.io/posts/mysql-note/%E5%8D%95%E8%A1%A8%E6%9F%A5%E8%AF%A2/</guid>
       <description>SELECT -- 字段列表 FROM -- 表名列表 WHERE -- 条件列表 GROUP BY -- 分组列表 HAVING -- 分组后条件 ORDER BY -- 排序字段 LIMIT -- 限制查询返回数据的数量，用于分页限制 条件查询 -- 查询表里许所有数据,不建议使用 SELECT * FROM users; -- 查询名字 -- DISTINCT 去除重复 SELECT DISTINCT name FROM users; -- 查询名字，性别，年龄 -- 可以使用 sex as 性别 的方式对列起别名,也可以写成 sex 性别 省略as 但字段名跟别名之间要有空格隔开 SELECT name, sex as 性别, age as 年龄 FROM users; -- 条件查询符号, NULL值比较使用 IS NOT NULL 跟 IS NULL SELECT name FROM users WHERE age &amp;gt; 17; -- 查询age数值大于17的数据 SELECT name FROM users WHERE age &amp;gt;= 7 AND age &amp;lt;= 50; -- 查询age数值在7跟50之间的数值(写法一) SELECT name FROM users WHERE age BETWEEN 7 AND 50; -- 查询age数值在7跟50之间的数值(写法二) -- 查询brith_day数值在&amp;#39;2000-01-01&amp;#39;跟&amp;#39;2000-04-01&amp;#39;之间的数值(写法二) SELECT name FROM users WHERE brith_day BETWEEN &amp;#39;2000-01-01&amp;#39; AND &amp;#39;2000-04-01&amp;#39;; SELECT name FROM users WHERE age = 17; -- 查询age数值等于17的数据 SELECT name FROM users WHERE age !</description>
       <content:encoded><![CDATA[<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-mysql" data-lang="mysql"><span class="line"><span class="cl"><span class="k">SELECT</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 	字段列表

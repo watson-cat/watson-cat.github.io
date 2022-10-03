@@ -4,17 +4,6 @@
     <title>Series on 学习笔记</title>
     <link>https://eoezora.github.io/series/</link>
     <description>Recent content in Series on 学习笔记</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 30 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://eoezora.github.io/series/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>PaperMod</title>
-      <link>https://eoezora.github.io/series/papermod/</link>
-      <pubDate>Fri, 30 Sep 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://eoezora.github.io/series/papermod/</guid>
-      <description></description>
-      <content:encoded><![CDATA[]]></content:encoded>
-    </item>
-    
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://eoezora.github.io/series/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
