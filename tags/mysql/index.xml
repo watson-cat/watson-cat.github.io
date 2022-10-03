@@ -357,6 +357,25 @@ id 订单id(外键) 商品id(外键) 1 1 1 2 1 2 3 2 1 注解：以上方三表�
     </item>
     
     <item>
+      <title>代码高亮测试</title>
+      <link>https://eoezora.github.io/posts/%E7%BA%A6%E6%9D%9F/</link>
+      <pubDate>Thu, 29 Sep 2022 21:44:20 +0800</pubDate>
+      
+      <guid>https://eoezora.github.io/posts/%E7%BA%A6%E6%9D%9F/</guid>
+      <description> @Override public void visit(Page page, CrawlDatums next) { String prefix = page.url().split(&amp;#34;\\.&amp;#34;)[1]; //body &amp;gt; div.wrap_game &amp;gt; dl:nth-child(4) &amp;gt; dd.c3 Elements webElements = page.select(&amp;#34;body &amp;gt; div.wrap_game &amp;gt; dl&amp;#34;); webElements.forEach(row -&amp;gt; { parse(prefix, row.select(&amp;#34;dl &amp;gt; dd.c3&amp;#34;), row.select(&amp;#34;dl &amp;gt; dd.c1&amp;#34;), row.select(&amp;#34;dl &amp;gt; dd.c2&amp;#34;), row.select(&amp;#34;dl &amp;gt; dd.c4&amp;#34;), row.select(&amp;#34;dl &amp;gt; dd.c5&amp;#34;), row.select(&amp;#34;dl &amp;gt; dd.c6&amp;#34;), row.select(&amp;#34;dl &amp;gt; dd.c7 &amp;gt; a&amp;#34;)); }); } </description>
+      <content:encoded><![CDATA[<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl">    <span class="nd">@Override</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">visit</span><span class="o">(</span><span class="n">Page</span> <span class="n">page</span><span class="o">,</span> <span class="n">CrawlDatums</span> <span class="n">next</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">String</span> <span class="n">prefix</span> <span class="o">=</span> <span class="n">page</span><span class="o">.</span><span class="na">url</span><span class="o">().</span><span class="na">split</span><span class="o">(</span><span class="s">&#34;\\.&#34;</span><span class="o">)[</span><span class="n">1</span><span class="o">];</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">//body &gt; div.wrap_game &gt; dl:nth-child(4) &gt; dd.c3
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">Elements</span> <span class="n">webElements</span> <span class="o">=</span> <span class="n">page</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="s">&#34;body &gt; div.wrap_game &gt; dl&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">webElements</span><span class="o">.</span><span class="na">forEach</span><span class="o">(</span><span class="n">row</span> <span class="o">-&gt;</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">parse</span><span class="o">(</span><span class="n">prefix</span><span class="o">,</span> <span class="n">row</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="s">&#34;dl &gt; dd.c3&#34;</span><span class="o">),</span> <span class="n">row</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="s">&#34;dl &gt; dd.c1&#34;</span><span class="o">),</span> <span class="n">row</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="s">&#34;dl &gt; dd.c2&#34;</span><span class="o">),</span> <span class="n">row</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="s">&#34;dl &gt; dd.c4&#34;</span><span class="o">),</span> <span class="n">row</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="s">&#34;dl &gt; dd.c5&#34;</span><span class="o">),</span> <span class="n">row</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="s">&#34;dl &gt; dd.c6&#34;</span><span class="o">),</span> <span class="n">row</span><span class="o">.</span><span class="na">select</span><span class="o">(</span><span class="s">&#34;dl &gt; dd.c7 &gt; a&#34;</span><span class="o">));</span>
+</span></span><span class="line"><span class="cl">        <span class="o">});</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span></code></pre></div>]]></content:encoded>
+    </item>
+    
+    <item>
       <title>Mysql笔记-单表查询</title>
       <link>https://eoezora.github.io/posts/mysql-note/%E5%8D%95%E8%A1%A8%E6%9F%A5%E8%AF%A2/</link>
       <pubDate>Thu, 29 Sep 2022 00:00:00 +0000</pubDate>
