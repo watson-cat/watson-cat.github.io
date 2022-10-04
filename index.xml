@@ -16,7 +16,9 @@
       <pubDate>Mon, 03 Oct 2022 00:00:00 +0000</pubDate>
       
       <guid>https://eoezora.github.io/posts/jdbc-note/api%E8%AF%A6%E8%A7%A3/</guid>
-      <description></description>
+      <description>DriverManager //创建一个链接 String url = &amp;#34;jdbc:mysql://localhost/database?useSSL=false&amp;amp;allowPublicKeyRetrieval=true&amp;#34;; String user = &amp;#34;&amp;#34;; String pwd = &amp;#34;&amp;#34;; Connection connection = DriverManager.getConnection(url,user,pwd); Connection 用于获取执行SQL的对象和管理事务
+//创建链接 Connection connection = DriverManager.getConnection(url,user,pwd); //要执行的SQL语句 String sql = &amp;#34;UPDATE users SET money = 1000 WHERE id = 114514;&amp;#34;; //创建执行对象 Statement statement = connection.createStatement(); try { //开启事务 connection.setAutoCommit(false); //执行语句 statement.executeUpdate(sql); //事务提交 connection.commit(); } catch (Exception e) { //若执行失败则回滚事务 connection.rollback(); throw new RuntimeException(e); } Statement 作用：执行SQL语句
+//执行DML DDL 语句， 增删改，返回受影响的行数 int executeUpdate(String sql) //执行DQL语句 返回ResultSet结果集对象,查询语句 ResultSet executeQuery(String sql) ResultSet 作用：一个结果集对象，封装了DQL查询语句的结果</description>
     </item>
     
     <item>
