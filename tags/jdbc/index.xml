@@ -21,5 +21,16 @@
 //执行DML DDL 语句， 增删改，返回受影响的行数 int executeUpdate(String sql) //执行DQL语句 返回ResultSet结果集对象,查询语句 ResultSet executeQuery(String sql) ResultSet 作用：一个结果集对象，封装了DQL查询语句的结果</description>
     </item>
     
+    <item>
+      <title>JavaWEB笔记-JDBC-连接池</title>
+      <link>https://eoezora.github.io/posts/jdbc-note/%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E6%B1%A0/</link>
+      <pubDate>Mon, 03 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://eoezora.github.io/posts/jdbc-note/%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E6%B1%A0/</guid>
+      <description>简介: 数据库连接池是个容器, 负责分配, 管理数据库链接, 允许应用程序重复使用现有的数据库链接, 而不是重新建立一个新连接
+标准接口: DataSource
+Druid配置文件 url=jdbc:mysql:///eoezora?useSSL=false&amp;amp;allowPublicKeyRetrieval=true username=root password=root #初始化连接数量 initialSize=5 #最大连接数 maxActive=10 #最大等待时间 ms maxWait=3000 加载配置 //1.加载配置文件 Properties pro = new Properties(); InputStream is = DruidDemo.class.getClassLoader().getResourceAsStream(&amp;#34;druid.properties&amp;#34;); pro.load(is); //2.获取连接池对象 DataSource ds = DruidDataSourceFactory.createDataSource(pro); //3.获取连接 Connection conn = ds.getConnection(); 归还连接|释放资源 public static void close(ResultSet rs, Statement stmt, Connection conn){ if (rs!=null) { try { rs.close(); } catch (Exception e) { System.out.println(e.getMessage()); } } if (stmt!=null) { try { stmt.</description>
+    </item>
+    
   </channel>
 </rss>
