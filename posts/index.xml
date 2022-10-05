@@ -9,7 +9,36 @@
       <link>https://eoezora.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 03 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://eoezora.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 04 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://eoezora.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>JavaWEB笔记-MyBatis-增删改查</title>
+      <link>https://eoezora.github.io/posts/mybatis/mybatis-%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5/</link>
+      <pubDate>Tue, 04 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://eoezora.github.io/posts/mybatis/mybatis-%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5/</guid>
+      <description>增删改查例子 AccountMapper.xml &amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;UTF-8&amp;#34; ?&amp;gt; &amp;lt;!DOCTYPE mapper PUBLIC &amp;#34;-//mybatis.org//DTD Mapper 3.0//EN&amp;#34; &amp;#34;http://mybatis.org/dtd/mybatis-3-mapper.dtd&amp;#34;&amp;gt; &amp;lt;!-- namespace是映射接口的路径 --&amp;gt; &amp;lt;mapper namespace=&amp;#34;com.eoezora.mybatisDemo.mapper.AccountMapper&amp;#34;&amp;gt; &amp;lt;!-- 添加数据, 参数POJO -&amp;gt; EoeAccount --&amp;gt; &amp;lt;!-- 添加这两个 useGeneratedKeys=&amp;#34;true&amp;#34; keyProperty=&amp;#34;id&amp;#34; 属性在insert标签里可以返回主键 --&amp;gt; &amp;lt;insert id=&amp;#34;addAccount&amp;#34; useGeneratedKeys=&amp;#34;true&amp;#34; keyProperty=&amp;#34;id&amp;#34;/&amp;gt; &amp;lt;insert id=&amp;#34;addAccount&amp;#34; &amp;gt; INSERT INTO account (name, age, brithDay, location) &amp;lt;!-- 这里的名字要与POJO类力的变量名一致 --&amp;gt; VALUES (#{name},#{age},#{brithDay},#{location}); &amp;lt;/insert&amp;gt; &amp;lt;!-- 删除数据 --&amp;gt; &amp;lt;delete id=&amp;#34;delAccouintById&amp;#34;&amp;gt; DELETE FROM account WHERE id = #{id} &amp;lt;/delete&amp;gt; &amp;lt;!-- 查询所以数据 多个条件使用 and 分割 --&amp;gt; &amp;lt;select id=&amp;#34;selectAccounts&amp;#34; resultType=&amp;#34;com.</description>
+    </item>
+    
+    <item>
+      <title>JavaWEB笔记-MyBatis快速入门笔记</title>
+      <link>https://eoezora.github.io/posts/mybatis/mybatis/</link>
+      <pubDate>Tue, 04 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://eoezora.github.io/posts/mybatis/mybatis/</guid>
+      <description>简介: 一个用于数据持久层的框架
+基本配置 //mybatis配置文件 String resource = &amp;#34;mybatis-config.xml&amp;#34;; InputStream inputStream = Resources.getResourceAsStream(resource); SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream); try (SqlSession session = sqlSessionFactory.openSession()) { //此处是直接调用方法进行操作，建议使用代理开发 List&amp;lt;EoeAccount&amp;gt; datas = session.selectList(&amp;#34;test.selectAll&amp;#34;); datas.forEach(System.out::println); session.close(); } Mybatis配置文件(mybatis-config.xml)
+&amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;UTF-8&amp;#34; ?&amp;gt; &amp;lt;!DOCTYPE configuration PUBLIC &amp;#34;-//mybatis.org//DTD Config 3.0//EN&amp;#34; &amp;#34;https://mybatis.org/dtd/mybatis-3-config.dtd&amp;#34;&amp;gt; &amp;lt;configuration&amp;gt; &amp;lt;environments default=&amp;#34;development&amp;#34;&amp;gt; &amp;lt;environment id=&amp;#34;development&amp;#34;&amp;gt; &amp;lt;transactionManager type=&amp;#34;JDBC&amp;#34;/&amp;gt; &amp;lt;dataSource type=&amp;#34;POOLED&amp;#34;&amp;gt; &amp;lt;property name=&amp;#34;driver&amp;#34; value=&amp;#34;com.mysql.cj.jdbc.Driver&amp;#34;/&amp;gt; &amp;lt;property name=&amp;#34;url&amp;#34; value=&amp;#34;jdbc:mysql://localhost:3306/eoezora?useSSL=false&amp;amp;amp;allowPublicKeyRetrieval=true&amp;#34;/&amp;gt; &amp;lt;property name=&amp;#34;username&amp;#34; value=&amp;#34;root&amp;#34;/&amp;gt; &amp;lt;property name=&amp;#34;password&amp;#34; value=&amp;#34;root&amp;#34;/&amp;gt; &amp;lt;/dataSource&amp;gt; &amp;lt;/environment&amp;gt; &amp;lt;/environments&amp;gt; &amp;lt;mappers&amp;gt; &amp;lt;mapper resource=&amp;#34;mappers/TestDemoMapper.xml&amp;#34;/&amp;gt; &amp;lt;/mappers&amp;gt; &amp;lt;/configuration&amp;gt; SQL语句映射文件(TestDemoMapper.</description>
+    </item>
+    
+    <item>
+      <title>JavaWEB笔记-MyBatis配置文件</title>
+      <link>https://eoezora.github.io/posts/mybatis/mybatis-%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Tue, 04 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://eoezora.github.io/posts/mybatis/mybatis-%E9%85%8D%E7%BD%AE/</guid>
+      <description>简介</description>
+    </item>
+    
     <item>
       <title>JavaWEB笔记-JDBC-API详解</title>
       <link>https://eoezora.github.io/posts/jdbc-note/api%E8%AF%A6%E8%A7%A3/</link>

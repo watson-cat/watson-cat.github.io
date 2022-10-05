@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>java on 学習のメモ</title>
-    <link>https://eoezora.github.io/tags/java/</link>
-    <description>Recent content in java on 学習のメモ</description>
+    <title>MyBatis on 学習のメモ</title>
+    <link>https://eoezora.github.io/tags/mybatis/</link>
+    <description>Recent content in MyBatis on 学習のメモ</description>
     <image>
       <url>https://eoezora.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://eoezora.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 04 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://eoezora.github.io/tags/java/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 04 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://eoezora.github.io/tags/mybatis/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>JavaWEB笔记-MyBatis-增删改查</title>
       <link>https://eoezora.github.io/posts/mybatis/mybatis-%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5/</link>
@@ -37,28 +37,6 @@
       
       <guid>https://eoezora.github.io/posts/mybatis/mybatis-%E9%85%8D%E7%BD%AE/</guid>
       <description>简介</description>
-    </item>
-    
-    <item>
-      <title>JavaWEB笔记-JDBC-API详解</title>
-      <link>https://eoezora.github.io/posts/jdbc-note/api%E8%AF%A6%E8%A7%A3/</link>
-      <pubDate>Mon, 03 Oct 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://eoezora.github.io/posts/jdbc-note/api%E8%AF%A6%E8%A7%A3/</guid>
-      <description>DriverManager //创建一个链接 String url = &amp;#34;jdbc:mysql://localhost/database?useSSL=false&amp;amp;allowPublicKeyRetrieval=true&amp;#34;; String user = &amp;#34;&amp;#34;; String pwd = &amp;#34;&amp;#34;; Connection connection = DriverManager.getConnection(url,user,pwd); Connection 用于获取执行SQL的对象和管理事务
-//创建链接 Connection connection = DriverManager.getConnection(url,user,pwd); //要执行的SQL语句 String sql = &amp;#34;UPDATE users SET money = 1000 WHERE id = 114514;&amp;#34;; //创建执行对象 Statement statement = connection.createStatement(); try { //开启事务 connection.setAutoCommit(false); //执行语句 statement.executeUpdate(sql); //事务提交 connection.commit(); } catch (Exception e) { //若执行失败则回滚事务 connection.rollback(); throw new RuntimeException(e); } Statement 作用：执行SQL语句
-//执行DML DDL 语句， 增删改，返回受影响的行数 int executeUpdate(String sql) //执行DQL语句 返回ResultSet结果集对象,查询语句 ResultSet executeQuery(String sql) ResultSet 作用：一个结果集对象，封装了DQL查询语句的结果</description>
-    </item>
-    
-    <item>
-      <title>JavaWEB笔记-JDBC-连接池</title>
-      <link>https://eoezora.github.io/posts/jdbc-note/%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E6%B1%A0/</link>
-      <pubDate>Mon, 03 Oct 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://eoezora.github.io/posts/jdbc-note/%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E6%B1%A0/</guid>
-      <description>简介: 数据库连接池是个容器, 负责分配, 管理数据库链接, 允许应用程序重复使用现有的数据库链接, 而不是重新建立一个新连接
-标准接口: DataSource
-Druid配置文件 url=jdbc:mysql:///eoezora?useSSL=false&amp;amp;allowPublicKeyRetrieval=true username=root password=root #初始化连接数量 initialSize=5 #最大连接数 maxActive=10 #最大等待时间 ms maxWait=3000 加载配置 //1.加载配置文件 Properties pro = new Properties(); InputStream is = DruidDemo.class.getClassLoader().getResourceAsStream(&amp;#34;druid.properties&amp;#34;); pro.load(is); //2.获取连接池对象 DataSource ds = DruidDataSourceFactory.createDataSource(pro); //3.获取连接 Connection conn = ds.getConnection(); 归还连接|释放资源 public static void close(ResultSet rs, Statement stmt, Connection conn){ if (rs!=null) { try { rs.close(); } catch (Exception e) { System.out.println(e.getMessage()); } } if (stmt!=null) { try { stmt.</description>
     </item>
     
   </channel>
