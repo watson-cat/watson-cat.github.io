@@ -9,7 +9,39 @@
       <link>https://eoezora.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 04 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://eoezora.github.io/tags/java/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 06 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://eoezora.github.io/tags/java/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>JavaWEB笔记-HTTP</title>
+      <link>https://eoezora.github.io/posts/javaweb/javaweb-http/</link>
+      <pubDate>Thu, 06 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://eoezora.github.io/posts/javaweb/javaweb-http/</guid>
+      <description>请求的数据格式 数据分为三部分
+请求行: 请求数据第一行, GET/POST 表示请求方式 / 表示请求路径 HTTP/1.1表示协议版本 请求头: 键值对数据 请求体: POST请求的最后一部分, 存放请求参数 例子:
+GET / HTTP/1.1 浏览器能够接受的资源类型 Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9 浏览器可以支持的压缩类型 Accept-Encoding: gzip, deflate, br 浏览器偏好语言 Accept-Language: en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7 Cache-Control: max-age=0 Connection: keep-alive Cookie: 请求主机名 Host: www.baidu.com Sec-Fetch-Dest: document Sec-Fetch-Mode: navigate Sec-Fetch-Site: none Sec-Fetch-User: ?1 Upgrade-Insecure-Requests: 1 浏览器版本 User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36 sec-ch-ua: &amp;#34;Chromium&amp;#34;;v=&amp;#34;106&amp;#34;, &amp;#34;Google Chrome&amp;#34;;v=&amp;#34;106&amp;#34;, &amp;#34;Not;A=Brand&amp;#34;;v=&amp;#34;99&amp;#34; sec-ch-ua-mobile: ?0 sec-ch-ua-platform: &amp;#34;Windows&amp;#34; GET请求参数在请求行中.</description>
+    </item>
+    
+    <item>
+      <title>JavaWEB笔记-Servlet</title>
+      <link>https://eoezora.github.io/posts/javaweb/javaweb-tomcat/</link>
+      <pubDate>Thu, 06 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://eoezora.github.io/posts/javaweb/javaweb-tomcat/</guid>
+      <description>快速入门 创建web项目,导入servlet坐标
+&amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;javax.servlet&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;javax.servlet-api&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;4.0.1&amp;lt;/version&amp;gt; &amp;lt;scope&amp;gt;provided&amp;lt;/scope&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;!-- Tomcat 10 使用这个--&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;jakarta.servlet&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;jakarta.servlet-api&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;5.0.0&amp;lt;/version&amp;gt; &amp;lt;scope&amp;gt;provided&amp;lt;/scope&amp;gt; &amp;lt;/dependency&amp;gt; 简单使用例
+package com.eoezora.controller; import jakarta.servlet.ServletException; import jakarta.servlet.annotation.WebServlet; import jakarta.servlet.http.HttpServlet; import jakarta.servlet.http.HttpServletRequest; import jakarta.servlet.http.HttpServletResponse; import java.io.IOException; @WebServlet(&amp;#34;/test&amp;#34;) // 访问路径是 /test public class TestController extends HttpServlet { @Override protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException { System.out.println(&amp;#34;get&amp;#34;); } @Override protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException { System.out.println(&amp;#34;post&amp;#34;); } } urlPattern配置 Servlet想要被访问,就必须设置其访问路径 (urlPattern)</description>
+    </item>
+    
+    <item>
+      <title>JavaWEB笔记-请求和响应</title>
+      <link>https://eoezora.github.io/posts/javaweb/javaweb-%E8%AF%B7%E6%B1%82%E5%92%8C%E5%93%8D%E5%BA%94/</link>
+      <pubDate>Thu, 06 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://eoezora.github.io/posts/javaweb/javaweb-%E8%AF%B7%E6%B1%82%E5%92%8C%E5%93%8D%E5%BA%94/</guid>
+      <description>介绍 Request: 获取请求数据 Response: 设置响应数据 Request 获取请求数据 一些需要了解的方法
+@Override protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException { // http://localhost:8080/EoeWebDemo_war/test?username=aas&amp;amp;password=1234567 // 请求行的数据 req.getMethod(); // GET 提交方法 req.getContextPath(); // EoeWebDemo_war 虚拟路径 req.getRequestURL(); // http://localhost:8080/EoeWebDemo_war/test req.getRequestURI(); // /EoeWebDemo_war/test req.getQueryString(); // username=aas&amp;amp;password=1234567 //请求头的数据, 根据请求头名称获取值 req.getHeader(&amp;#34;User-Agent&amp;#34;); //Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36 } @Override protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException { //获取POST请求体的数据 //获取流对象 // BufferedReader getReader()：获取字符输入流 只能操作字符数据 // ServletInputStream getInputStream()：获取字节输入流 可以操作所有类型数据 req.</description>
+    </item>
+    
     <item>
       <title>JavaWEB笔记-MyBatis-增删改查</title>
       <link>https://eoezora.github.io/posts/mybatis/mybatis-%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5/</link>

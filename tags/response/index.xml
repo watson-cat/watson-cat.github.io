@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Response on 学習のメモ</title>
+    <link>https://eoezora.github.io/tags/response/</link>
+    <description>Recent content in Response on 学習のメモ</description>
+    <image>
+      <url>https://eoezora.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://eoezora.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Thu, 06 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://eoezora.github.io/tags/response/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>JavaWEB笔记-请求和响应</title>
+      <link>https://eoezora.github.io/posts/javaweb/javaweb-%E8%AF%B7%E6%B1%82%E5%92%8C%E5%93%8D%E5%BA%94/</link>
+      <pubDate>Thu, 06 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://eoezora.github.io/posts/javaweb/javaweb-%E8%AF%B7%E6%B1%82%E5%92%8C%E5%93%8D%E5%BA%94/</guid>
+      <description>介绍 Request: 获取请求数据 Response: 设置响应数据 Request 获取请求数据 一些需要了解的方法
+@Override protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException { // http://localhost:8080/EoeWebDemo_war/test?username=aas&amp;amp;password=1234567 // 请求行的数据 req.getMethod(); // GET 提交方法 req.getContextPath(); // EoeWebDemo_war 虚拟路径 req.getRequestURL(); // http://localhost:8080/EoeWebDemo_war/test req.getRequestURI(); // /EoeWebDemo_war/test req.getQueryString(); // username=aas&amp;amp;password=1234567 //请求头的数据, 根据请求头名称获取值 req.getHeader(&amp;#34;User-Agent&amp;#34;); //Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36 } @Override protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException { //获取POST请求体的数据 //获取流对象 // BufferedReader getReader()：获取字符输入流 只能操作字符数据 // ServletInputStream getInputStream()：获取字节输入流 可以操作所有类型数据 req.</description>
+    </item>
+    
+  </channel>
+</rss>
