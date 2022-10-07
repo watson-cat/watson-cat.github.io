@@ -9,7 +9,20 @@
       <link>https://eoezora.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 06 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://eoezora.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 07 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://eoezora.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>JavaWEB笔记-会话跟踪技术</title>
+      <link>https://eoezora.github.io/posts/javaweb/javaweb-%E4%BC%9A%E8%AF%9D%E8%B7%9F%E8%B8%AA%E6%8A%80%E6%9C%AF/</link>
+      <pubDate>Fri, 07 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://eoezora.github.io/posts/javaweb/javaweb-%E4%BC%9A%E8%AF%9D%E8%B7%9F%E8%B8%AA%E6%8A%80%E6%9C%AF/</guid>
+      <description>会话 会话:客户端跟服务端的连接,会话建立后直到一方断开连接才会结束.在一次会话中可以包含多次请求和响应 会话跟踪:服务端会识别多个请求是否来自同一个客户端,以便在同次会话的多次请求间共享数据 HTTP协议是无状态的,每次客户端向服务端请求时。服务端都会将该请求视为新的请求,因此我们需要会话跟踪技术来实现会话内数据共享 实现方式: 客户端会话跟踪技术: Cookie 服务端跟会话踪技术: Session Cokkie 客户端会话技术,将数据保存在客户端,以后每次请求都携带Cookie数据进行访问
+基本使用 @Override protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException { //创建Cookie对象 Cookie cookie = new Cookie(&amp;#34;key&amp;#34;,&amp;#34;value&amp;#34;); //发送cookie到客户端 response.addCookie(cookie); //获取客户端所有cookie Cookie[] cookies = request.getCookies(); //通过遍历获取每个cookie for (Cookie cookie1 : cookies) { System.out.println(cookie1.getName() + &amp;#34; - &amp;#34; + cookie1.getValue()); } } 存活时间 默认情况下, 当浏览器关闭后,内存释放,Cookie会被销毁
+使用方法 cookie.setMaxAge(秒) 设置cookie存活时间
+而参数有以下含义
+正数: 将会cookie写入浏览器所在电脑硬盘,持久化存储到期自动删除 负数: 默认值, Cookie存在于浏览器内存中,浏览器关闭自动销毁 零: 删除对应cookie 存储中文 Cookie不支持存中文, 如果非要存中文可以把中文进行URL编码存进去, 取的时候再解码</description>
+    </item>
+    
     <item>
       <title>JavaWEB笔记-HTTP</title>
       <link>https://eoezora.github.io/posts/javaweb/javaweb-http/</link>
