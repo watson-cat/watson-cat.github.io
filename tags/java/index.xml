@@ -9,7 +9,24 @@
       <link>https://eoezora.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 07 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://eoezora.github.io/tags/java/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 09 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://eoezora.github.io/tags/java/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>JavaWEB笔记-Spring基础</title>
+      <link>https://eoezora.github.io/posts/spring/spring%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/</link>
+      <pubDate>Sun, 09 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://eoezora.github.io/posts/spring/spring%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/</guid>
+      <description>控制反转Ioc 使用对象时,由主动new产生对象转换为由外部提供对象, 此过程中创建对象控制权由程序转移到外部,此思想称为控制反转
+Spring对Ioc思想的实现
+Spring提供了一个容器,称为Ioc容器，用来充当Ioc思想中的&amp;quot;外部&amp;quot; Ioc容器负责对象创建,初始化等一系工作, 被创建或被管理的对象在Ioc容器中被称为Bean DI(Dependency Injection): 依赖注入
+在容器中建立的Bean与Bean之间的依赖关系的整个过程,称为依赖注入 目标: 充分解耦
+使用Ioc容器管理Bean 在Ioc容器内将有依赖关系的Bean进行关系绑定(DI) 适合给容器管理的Bean
+表现层对象 业务层对象 数据层对象 工具对象 不适合给容器管理的Bean
+封装实体的域对象 xml配置Bean 一个Bean配置文件
+&amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;UTF-8&amp;#34;?&amp;gt; &amp;lt;beans xmlns=&amp;#34;http://www.springframework.org/schema/beans&amp;#34; xmlns:xsi=&amp;#34;http://www.w3.org/2001/XMLSchema-instance&amp;#34; xsi:schemaLocation=&amp;#34;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd&amp;#34;&amp;gt; &amp;lt;!--id为Bean名字--&amp;gt; &amp;lt;!--name 为bean起别名--&amp;gt; &amp;lt;!--Class是bean接口对应实现类--&amp;gt; &amp;lt;!--scope时bean的作用范围,默认singleton单例 | prototype非单例 --&amp;gt; &amp;lt;bean id=&amp;#34;bookInfo&amp;#34; class=&amp;#34;com.eoezora.springdemo.dao.impl.PysBookImpl&amp;#34;/&amp;gt; &amp;lt;!--id为Bean名字 Class是bean接口对应实现类--&amp;gt; &amp;lt;bean id=&amp;#34;bookService&amp;#34; class=&amp;#34;com.eoezora.springdemo.services.impl.BookServerImpl&amp;#34;&amp;gt; &amp;lt;!--配置当前Bean的属性--&amp;gt; &amp;lt;!--name属性表示配置哪一个属性--&amp;gt; &amp;lt;!--ref表示参照哪个Bean--&amp;gt; &amp;lt;property name=&amp;#34;bookInfo&amp;#34; ref=&amp;#34;bookInfo&amp;#34;/&amp;gt; &amp;lt;/bean&amp;gt; &amp;lt;/beans&amp;gt; Java使用代码
+public static void main(String[] args) { //根据配置文件获取IoC容器 ApplicationContext ctx = new ClassPathXmlApplicationContext(&amp;#34;applicationContext.xml&amp;#34;); //ctx.getBean(bean的id); BookService bookService = (BookService) ctx.</description>
+    </item>
+    
     <item>
       <title>JavaWEB笔记-会话跟踪技术</title>
       <link>https://eoezora.github.io/posts/javaweb/javaweb-%E4%BC%9A%E8%AF%9D%E8%B7%9F%E8%B8%AA%E6%8A%80%E6%9C%AF/</link>
