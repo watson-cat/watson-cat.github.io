@@ -8,7 +8,7 @@
     <loc>https://eoezora.github.io/tags/java/</loc>
     <lastmod>2022-10-09T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://eoezora.github.io/posts/spring/spring%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/</loc>
+    <loc>https://eoezora.github.io/posts/spring/spring-ioc%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/</loc>
     <lastmod>2022-10-09T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://eoezora.github.io/tags/note/</loc>
@@ -29,6 +29,12 @@
     <loc>https://eoezora.github.io/posts/javaweb/javaweb-%E4%BC%9A%E8%AF%9D%E8%B7%9F%E8%B8%AA%E6%8A%80%E6%9C%AF/</loc>
     <lastmod>2022-10-07T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://eoezora.github.io/tags/aop/</loc>
+    <lastmod>2022-10-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://eoezora.github.io/tags/aspectj/</loc>
+    <lastmod>2022-10-06T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://eoezora.github.io/tags/filter/</loc>
     <lastmod>2022-10-06T00:00:00+00:00</lastmod>
   </url><url>
@@ -41,10 +47,19 @@
     <loc>https://eoezora.github.io/posts/javaweb/javaweb-tomcat/</loc>
     <lastmod>2022-10-06T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://eoezora.github.io/posts/spring/spring-aop%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/</loc>
+    <lastmod>2022-10-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://eoezora.github.io/posts/spring/spring-%E6%95%B4%E5%90%88mybatis/</loc>
+    <lastmod>2022-10-06T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://eoezora.github.io/posts/javaweb/javaweb-%E8%AF%B7%E6%B1%82%E5%92%8C%E5%93%8D%E5%BA%94/</loc>
     <lastmod>2022-10-06T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://eoezora.github.io/posts/javaweb/javaweb-filter%E8%BF%87%E6%BB%A4%E5%99%A8/</loc>
+    <lastmod>2022-10-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://eoezora.github.io/tags/mybatis/</loc>
     <lastmod>2022-10-06T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://eoezora.github.io/tags/response/</loc>
@@ -60,9 +75,6 @@
     <lastmod>2022-10-04T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://eoezora.github.io/posts/mybatis/mybatis-%E9%85%8D%E7%BD%AE/</loc>
-    <lastmod>2022-10-04T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://eoezora.github.io/tags/mybatis/</loc>
     <lastmod>2022-10-04T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://eoezora.github.io/posts/jdbc-note/api%E8%AF%A6%E8%A7%A3/</loc>

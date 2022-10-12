@@ -12,10 +12,10 @@
     <lastBuildDate>Sun, 09 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://eoezora.github.io/tags/java/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>JavaWEB笔记-Spring核心容器</title>
-      <link>https://eoezora.github.io/posts/spring/spring%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/</link>
+      <link>https://eoezora.github.io/posts/spring/spring-ioc%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/</link>
       <pubDate>Sun, 09 Oct 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://eoezora.github.io/posts/spring/spring%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/</guid>
+      <guid>https://eoezora.github.io/posts/spring/spring-ioc%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/</guid>
       <description>控制反转Ioc 使用对象时,由主动new产生对象转换为由外部提供对象, 此过程中创建对象控制权由程序转移到外部,此思想称为控制反转
 Spring对Ioc思想的实现
 Spring提供了一个容器,称为Ioc容器，用来充当Ioc思想中的&amp;quot;外部&amp;quot; Ioc容器负责对象创建,初始化等一系工作, 被创建或被管理的对象在Ioc容器中被称为Bean DI(Dependency Injection): 依赖注入
@@ -63,6 +63,32 @@ package com.eoezora.controller; import jakarta.servlet.ServletException; import 
     </item>
     
     <item>
+      <title>JavaWEB笔记-Spring-AOP</title>
+      <link>https://eoezora.github.io/posts/spring/spring-aop%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/</link>
+      <pubDate>Thu, 06 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://eoezora.github.io/posts/spring/spring-aop%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/</guid>
+      <description>简介 AOP: 面向切面编程, 一种编程范式,指导开发者如何组织程序结构
+作用: 在不惊动原始设计的基础上进行功能增强
+Spring理念: 无入侵式\无侵入式 编程
+切入点: 要追加功能的方法,实际被增强的方法
+连接点: 可以被增强的方法
+通知: 要添加的功能, 共性功能,
+切面: 把通知应用到切入点的过程
+简单例子 Spring自带aop相关依赖,这里只需要导入Aspectj即可
+导入Maven坐标 &amp;lt;!--aspectj坐标--&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.aspectj&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;aspectjweaver&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;1.9.9.1&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; 通知类 /** * 通知类 * @Aspect 告诉Spring这是个AOP增强 */ @Component @Aspect public class AOPAdvice { /** * 定义一个 &amp;lt;切入点&amp;gt; * @Pointcut 切入点注解 * &amp;#34;execution(void com.eoezora.aop_spring.dao.BookDao.update())&amp;#34; 执行目标包下的某个方法 */ @Pointcut(&amp;#34;execution(void com.eoezora.aop_spring.dao.BookDao.update())&amp;#34;) private void commonUpdate() {} /** * 定义一个 &amp;lt;通知&amp;gt; 方法 * @Before 在方法执行前通知 * @After 在方法执行后通知 * @AfterReturning 放回后通知 * @AfterThrowing 发生异常后通知 * @Around 在方法执行前和执行后通知 */ @Before(&amp;#34;commonUpdate()&amp;#34;) public void commonMethod() { System.</description>
+    </item>
+    
+    <item>
+      <title>JavaWEB笔记-Spring整合mybatis</title>
+      <link>https://eoezora.github.io/posts/spring/spring-%E6%95%B4%E5%90%88mybatis/</link>
+      <pubDate>Thu, 06 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://eoezora.github.io/posts/spring/spring-%E6%95%B4%E5%90%88mybatis/</guid>
+      <description>Maven坐标 &amp;lt;!--德鲁伊连接池--&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;com.alibaba&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;druid&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;1.2.13-SNSAPSHOT&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;!--数据库连接组件--&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;mysql&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;mysql-connector-java&amp;lt;/artifactId&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;!--mybatis--&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.mybatis&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;mybatis&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;3.5.11&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;!--spring操作数据库需要的--&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.springframework&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring-jdbc&amp;lt;/artifactId&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;!--spring整合mybatis需要的--&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.mybatis&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;mybatis-spring&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;2.0.7&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; JDBC配置类 public class JDBCConfig { @Value(&amp;#34;${jdbc.url}&amp;#34;) private String url; @Value(&amp;#34;${jdbc.username}&amp;#34;) private String username; @Value(&amp;#34;${jdbc.password}&amp;#34;) private String password; private String driverClass = &amp;#34;com.mysql.jdbc.Driver&amp;#34;; @Bean public DataSource dataSource() { DruidDataSource druidDataSource = new DruidDataSource(); druidDataSource.setDriverClassName(driverClass); druidDataSource.setUrl(url); druidDataSource.setUsername(username); druidDataSource.setPassword(password); return druidDataSource; } } Mybatis配置类 public class MybatisConfig { @Bean public SqlSessionFactoryBean sqlSessionFactoryBean(DataSource dataSource) { //创建SqlSessionFactoryBean SqlSessionFactoryBean sfb = new SqlSessionFactoryBean(); //设置mybatis别名扫描 sfb.</description>
+    </item>
+    
+    <item>
       <title>JavaWEB笔记-请求和响应</title>
       <link>https://eoezora.github.io/posts/javaweb/javaweb-%E8%AF%B7%E6%B1%82%E5%92%8C%E5%93%8D%E5%BA%94/</link>
       <pubDate>Thu, 06 Oct 2022 00:00:00 +0000</pubDate>
@@ -101,7 +127,7 @@ public class FilterDemo implements Filter { @Override public void init(FilterCon
       <guid>https://eoezora.github.io/posts/mybatis/mybatis/</guid>
       <description>简介: 一个用于数据持久层的框架
 基本配置 //mybatis配置文件 String resource = &amp;#34;mybatis-config.xml&amp;#34;; InputStream inputStream = Resources.getResourceAsStream(resource); SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream); try (SqlSession session = sqlSessionFactory.openSession()) { //此处是直接调用方法进行操作，建议使用代理开发 List&amp;lt;EoeAccount&amp;gt; datas = session.selectList(&amp;#34;test.selectAll&amp;#34;); datas.forEach(System.out::println); session.close(); } Mybatis配置文件(mybatis-config.xml)
-&amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;UTF-8&amp;#34; ?&amp;gt; &amp;lt;!DOCTYPE configuration PUBLIC &amp;#34;-//mybatis.org//DTD Config 3.0//EN&amp;#34; &amp;#34;https://mybatis.org/dtd/mybatis-3-config.dtd&amp;#34;&amp;gt; &amp;lt;configuration&amp;gt; &amp;lt;environments default=&amp;#34;development&amp;#34;&amp;gt; &amp;lt;environment id=&amp;#34;development&amp;#34;&amp;gt; &amp;lt;transactionManager type=&amp;#34;JDBC&amp;#34;/&amp;gt; &amp;lt;dataSource type=&amp;#34;POOLED&amp;#34;&amp;gt; &amp;lt;property name=&amp;#34;driver&amp;#34; value=&amp;#34;com.mysql.cj.jdbc.Driver&amp;#34;/&amp;gt; &amp;lt;property name=&amp;#34;url&amp;#34; value=&amp;#34;jdbc:mysql://localhost:3306/eoezora?useSSL=false&amp;amp;amp;allowPublicKeyRetrieval=true&amp;#34;/&amp;gt; &amp;lt;property name=&amp;#34;username&amp;#34; value=&amp;#34;root&amp;#34;/&amp;gt; &amp;lt;property name=&amp;#34;password&amp;#34; value=&amp;#34;root&amp;#34;/&amp;gt; &amp;lt;/dataSource&amp;gt; &amp;lt;/environment&amp;gt; &amp;lt;/environments&amp;gt; &amp;lt;mappers&amp;gt; &amp;lt;mapper resource=&amp;#34;mappers/TestDemoMapper.xml&amp;#34;/&amp;gt; &amp;lt;/mappers&amp;gt; &amp;lt;/configuration&amp;gt; SQL语句映射文件(TestDemoMapper.</description>
+&amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;UTF-8&amp;#34; ?&amp;gt; &amp;lt;!DOCTYPE configuration PUBLIC &amp;#34;-//mybatis.org//DTD Config 3.0//EN&amp;#34; &amp;#34;https://mybatis.org/dtd/mybatis-3-config.dtd&amp;#34;&amp;gt; &amp;lt;configuration&amp;gt; &amp;lt;environments default=&amp;#34;development&amp;#34;&amp;gt; &amp;lt;environment id=&amp;#34;development&amp;#34;&amp;gt; &amp;lt;transactionManager type=&amp;#34;JDBC&amp;#34;/&amp;gt; &amp;lt;dataSource type=&amp;#34;POOLED&amp;#34;&amp;gt; &amp;lt;property name=&amp;#34;driver&amp;#34; value=&amp;#34;com.mysql.cj.jdbc.Driver&amp;#34;/&amp;gt; &amp;lt;property name=&amp;#34;url&amp;#34; value=&amp;#34;jdbc:mysql://localhost:3306/eoezora?useSSL=false&amp;amp;amp;allowPublicKeyRetrieval=true&amp;#34;/&amp;gt; &amp;lt;property name=&amp;#34;username&amp;#34; value=&amp;#34;root&amp;#34;/&amp;gt; &amp;lt;property name=&amp;#34;password&amp;#34; value=&amp;#34;root&amp;#34;/&amp;gt; &amp;lt;/dataSource&amp;gt; &amp;lt;/environment&amp;gt; &amp;lt;/environments&amp;gt; &amp;lt;mappers&amp;gt; &amp;lt;mapper resource=&amp;#34;mappers/TestDemoMapper.xml&amp;#34;/&amp;gt; &amp;lt;/mappers&amp;gt; &amp;lt;/configuration&amp;gt; SQL语句</description>
     </item>
     
     <item>
