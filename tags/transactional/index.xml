@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>transactional on 学習のメモ</title>
+    <link>https://eoezora.github.io/tags/transactional/</link>
+    <description>Recent content in transactional on 学習のメモ</description>
+    <image>
+      <url>https://eoezora.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://eoezora.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Thu, 06 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://eoezora.github.io/tags/transactional/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>JavaWEB笔记-Spring事务</title>
+      <link>https://eoezora.github.io/posts/spring/spring-%E4%BA%8B%E5%8A%A1/</link>
+      <pubDate>Thu, 06 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://eoezora.github.io/posts/spring/spring-%E4%BA%8B%E5%8A%A1/</guid>
+      <description>简介 事务作用: 在数据层保证一系列数据库操作同时成功或同时失败
+Spring事务作用: 在数据层或业务层的一些列数据库操作同时成功或同时失败
+例子 通过相同的数据源DataSource来管理sql的事务
+在业务层的接口上, 要添加Spring事务的方法上添加注解 @Transactional, 一般是使用在业务层接口上,不会用在实现类上. @Transactional也可以使用在类上,使用在类上表示该类所有方法都开启事务 设置事务管理器 @Bean public PlatformTransactionManager transactionManager(DataSource dataSource) { DataSourceTransactionManager transactionManager = new DataSourceTransactionManager(); transactionManager.setDataSource(dataSource); return transactionManager; } 在Spring设置里打开注解事务驱动 //开起启用注解事务 @EnableTransactionManagement //事务简单例子 //本方法中有三个事务分别是 test_Tran() print_a() print_b() //在实际运行中print_a()和print_b()会加入到test_Tran()中形成一个新的事务, 从而实现print_a()和print_b()的同时成功或同时失败 @Transactional public void test_Tran(){ common.print_a(); //... common.print_b(); } class common { @Transactional public void print_a() { sout(&amp;#34;2333&amp;#34;); } @Transactional public void print_b() { sout(&amp;#34;12345&amp;#34;); } } 事务角色 事务管理员: 发起事务方, 在Spring中通常指代业务开始事务的方法
+事务协调员: 加入事务方, 在Spring中通常指数据层方法,也可以是业务层方法</description>
+    </item>
+    
+  </channel>
+</rss>
