@@ -9,11 +9,11 @@
       <link>https://eoezora.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 06 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://eoezora.github.io/tags/response/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 05 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://eoezora.github.io/tags/response/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>JavaWEB笔记-请求和响应</title>
       <link>https://eoezora.github.io/posts/javaweb/javaweb-%E8%AF%B7%E6%B1%82%E5%92%8C%E5%93%8D%E5%BA%94/</link>
-      <pubDate>Thu, 06 Oct 2022 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 05 Oct 2022 00:00:00 +0000</pubDate>
       
       <guid>https://eoezora.github.io/posts/javaweb/javaweb-%E8%AF%B7%E6%B1%82%E5%92%8C%E5%93%8D%E5%BA%94/</guid>
       <description>介绍 Request: 获取请求数据 Response: 设置响应数据 Request 获取请求数据 一些需要了解的方法

@@ -9,7 +9,58 @@
       <link>https://eoezora.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 09 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://eoezora.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 16 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://eoezora.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>JavaWEB笔记-SpringMVC</title>
+      <link>https://eoezora.github.io/posts/spring/spring-mvc/</link>
+      <pubDate>Sun, 16 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://eoezora.github.io/posts/spring/spring-mvc/</guid>
+      <description>快速入门 SpringMVC与Tomcat整合 需要注意的是Tomcat 10与spring mvc不兼容. 请使用tomcat 8
+导入maven坐标 &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;javax.servlet&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;javax-servlet-api&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;4.0.1&amp;lt;/version&amp;gt; &amp;lt;scope&amp;gt;provided&amp;lt;/scope&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.springframework&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring-webmvc&amp;lt;/artifactId&amp;gt; &amp;lt;/dependency&amp;gt; 创建控制类 //@Controller 注解表示这是一个Spring Bean @Controller public class AccountController { //访问入口 @RequestMapping(&amp;#34;/sign-in&amp;#34;) //设置返回值为响应内容 @ResponseBody public String OnAccountSignIn() { System.out.println(&amp;#34;Account: Sign In&amp;#34;); return &amp;#34;{&amp;#39;msg&amp;#39;:&amp;#39;success&amp;#39;}&amp;#34;; } } 创建Spring配置类 /** * Spring配置类 * 设置组件扫描路径,加载Bean */ @Configuration @ComponentScan(&amp;#34;com.eoezora&amp;#34;) public class SpringConfig { } 初始化Servlet容器, 加载SpringMVC环境,并设置SpringMVC技术处理的请求 /** * 定义一个Servlet容器启动的配置类,在里面加载Spring的配置 */ public class ServletContainersInitConfig extends AbstractDispatcherServletInitializer { /** * 加载Spring mvc 容器配置 * SpringMVC的配置 */ @Override protected WebApplicationContext createServletApplicationContext() { AnnotationConfigWebApplicationContext context = new AnnotationConfigWebApplicationContext(); //SpringMVConfig.</description>
+    </item>
+    
+    <item>
+      <title>JavaWEB笔记-Spring事务</title>
+      <link>https://eoezora.github.io/posts/spring/spring-%E4%BA%8B%E5%8A%A1/</link>
+      <pubDate>Fri, 14 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://eoezora.github.io/posts/spring/spring-%E4%BA%8B%E5%8A%A1/</guid>
+      <description>简介 事务作用: 在数据层保证一系列数据库操作同时成功或同时失败
+Spring事务作用: 在数据层或业务层的一些列数据库操作同时成功或同时失败
+例子 通过相同的数据源DataSource来管理sql的事务
+在业务层的接口上, 要添加Spring事务的方法上添加注解 @Transactional, 一般是使用在业务层接口上,不会用在实现类上. @Transactional也可以使用在类上,使用在类上表示该类所有方法都开启事务 设置事务管理器 @Bean public PlatformTransactionManager transactionManager(DataSource dataSource) { DataSourceTransactionManager transactionManager = new DataSourceTransactionManager(); transactionManager.setDataSource(dataSource); return transactionManager; } 在Spring设置里打开注解事务驱动 //开起启用注解事务 @EnableTransactionManagement //事务简单例子 //本方法中有三个事务分别是 test_Tran() print_a() print_b() //在实际运行中print_a()和print_b()会加入到test_Tran()中形成一个新的事务, 从而实现print_a()和print_b()的同时成功或同时失败 @Transactional public void test_Tran(){ common.print_a(); //... common.print_b(); } class common { @Transactional public void print_a() { sout(&amp;#34;2333&amp;#34;); } @Transactional public void print_b() { sout(&amp;#34;12345&amp;#34;); } } 事务角色 事务管理员: 发起事务方, 在Spring中通常指代业务开始事务的方法
+事务协调员: 加入事务方, 在Spring中通常指数据层方法,也可以是业务层方法</description>
+    </item>
+    
+    <item>
+      <title>JavaWEB笔记-Spring整合mybatis</title>
+      <link>https://eoezora.github.io/posts/spring/spring-%E6%95%B4%E5%90%88mybatis/</link>
+      <pubDate>Thu, 13 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://eoezora.github.io/posts/spring/spring-%E6%95%B4%E5%90%88mybatis/</guid>
+      <description>Maven坐标 &amp;lt;!--德鲁伊连接池--&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;com.alibaba&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;druid&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;1.2.13-SNSAPSHOT&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;!--数据库连接组件--&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;mysql&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;mysql-connector-java&amp;lt;/artifactId&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;!--mybatis--&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.mybatis&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;mybatis&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;3.5.11&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;!--spring操作数据库需要的--&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.springframework&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring-jdbc&amp;lt;/artifactId&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;!--spring整合mybatis需要的--&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.mybatis&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;mybatis-spring&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;2.0.7&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; JDBC配置类 public class JDBCConfig { @Value(&amp;#34;${jdbc.url}&amp;#34;) private String url; @Value(&amp;#34;${jdbc.username}&amp;#34;) private String username; @Value(&amp;#34;${jdbc.password}&amp;#34;) private String password; private String driverClass = &amp;#34;com.mysql.jdbc.Driver&amp;#34;; @Bean public DataSource dataSource() { DruidDataSource druidDataSource = new DruidDataSource(); druidDataSource.setDriverClassName(driverClass); druidDataSource.setUrl(url); druidDataSource.setUsername(username); druidDataSource.setPassword(password); return druidDataSource; } } Mybatis配置类 public class MybatisConfig { @Bean public SqlSessionFactoryBean sqlSessionFactoryBean(DataSource dataSource) { //创建SqlSessionFactoryBean SqlSessionFactoryBean sfb = new SqlSessionFactoryBean(); //设置mybatis别名扫描 sfb.</description>
+    </item>
+    
+    <item>
+      <title>JavaWEB笔记-Spring-AOP</title>
+      <link>https://eoezora.github.io/posts/spring/spring-aop%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/</link>
+      <pubDate>Tue, 11 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://eoezora.github.io/posts/spring/spring-aop%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/</guid>
+      <description>简介 AOP: 面向切面编程, 一种编程范式,指导开发者如何组织程序结构
+作用: 在不惊动原始设计的基础上进行功能增强
+Spring理念: 无入侵式\无侵入式 编程
+代理(Proxy): 本质是采用代理模式实现
+切入点(PointCut): 匹配连接点的式子, 可以理解成共性功能的方法描述
+连接点(JoinPoint): 可以被增强的方法, 可以理解成任意方法
+通知(Advice): 要添加的功能, 共性功能,
+切面(Aspect): 把通知应用到切入点的过程
+目标对象(Target): 被代理的原始对象的目标对象
+简单例子 Spring自带aop相关依赖,这里只需要导入Aspectj即可
+导入Maven坐标 &amp;lt;!--aspectj坐标--&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.aspectj&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;aspectjweaver&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;1.9.9.1&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; 通知类 /** * 通知类 * @Aspect 告诉Spring这是个AOP增强 */ @Component @Aspect public class AOPAdvice { /** * 定义一个 &amp;lt;切入点&amp;gt; * @Pointcut 切入点注解 * &amp;#34;execution(void com.eoezora.aop_spring.dao.BookDao.update())&amp;#34; 执行目标包下的某个方法 */ @Pointcut(&amp;#34;execution(void com.eoezora.aop_spring.dao.BookDao.update())&amp;#34;) private void commonUpdate() {} /** * 定义一个 &amp;lt;通知&amp;gt; 方法 * @Before 在方法执行前通知 * @After 在方法执行后通知 * @AfterReturning 放回后通知 * @AfterThrowing 发生异常后通知 * @Around 在方法执行前和执行后通知 */ @Before(&amp;#34;commonUpdate()&amp;#34;) public void commonMethod() { System.</description>
+    </item>
+    
     <item>
       <title>JavaWEB笔记-Spring核心容器</title>
       <link>https://eoezora.github.io/posts/spring/spring-ioc%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/</link>
@@ -63,57 +114,6 @@ package com.eoezora.controller; import jakarta.servlet.ServletException; import 
     </item>
     
     <item>
-      <title>JavaWEB笔记-Spring-AOP</title>
-      <link>https://eoezora.github.io/posts/spring/spring-aop%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/</link>
-      <pubDate>Thu, 06 Oct 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://eoezora.github.io/posts/spring/spring-aop%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/</guid>
-      <description>简介 AOP: 面向切面编程, 一种编程范式,指导开发者如何组织程序结构
-作用: 在不惊动原始设计的基础上进行功能增强
-Spring理念: 无入侵式\无侵入式 编程
-代理(Proxy): 本质是采用代理模式实现
-切入点(PointCut): 匹配连接点的式子, 可以理解成共性功能的方法描述
-连接点(JoinPoint): 可以被增强的方法, 可以理解成任意方法
-通知(Advice): 要添加的功能, 共性功能,
-切面(Aspect): 把通知应用到切入点的过程
-目标对象(Target): 被代理的原始对象的目标对象
-简单例子 Spring自带aop相关依赖,这里只需要导入Aspectj即可
-导入Maven坐标 &amp;lt;!--aspectj坐标--&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.aspectj&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;aspectjweaver&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;1.9.9.1&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; 通知类 /** * 通知类 * @Aspect 告诉Spring这是个AOP增强 */ @Component @Aspect public class AOPAdvice { /** * 定义一个 &amp;lt;切入点&amp;gt; * @Pointcut 切入点注解 * &amp;#34;execution(void com.eoezora.aop_spring.dao.BookDao.update())&amp;#34; 执行目标包下的某个方法 */ @Pointcut(&amp;#34;execution(void com.eoezora.aop_spring.dao.BookDao.update())&amp;#34;) private void commonUpdate() {} /** * 定义一个 &amp;lt;通知&amp;gt; 方法 * @Before 在方法执行前通知 * @After 在方法执行后通知 * @AfterReturning 放回后通知 * @AfterThrowing 发生异常后通知 * @Around 在方法执行前和执行后通知 */ @Before(&amp;#34;commonUpdate()&amp;#34;) public void commonMethod() { System.</description>
-    </item>
-    
-    <item>
-      <title>JavaWEB笔记-Spring事务</title>
-      <link>https://eoezora.github.io/posts/spring/spring-%E4%BA%8B%E5%8A%A1/</link>
-      <pubDate>Thu, 06 Oct 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://eoezora.github.io/posts/spring/spring-%E4%BA%8B%E5%8A%A1/</guid>
-      <description>简介 事务作用: 在数据层保证一系列数据库操作同时成功或同时失败
-Spring事务作用: 在数据层或业务层的一些列数据库操作同时成功或同时失败
-例子 通过相同的数据源DataSource来管理sql的事务
-在业务层的接口上, 要添加Spring事务的方法上添加注解 @Transactional, 一般是使用在业务层接口上,不会用在实现类上. @Transactional也可以使用在类上,使用在类上表示该类所有方法都开启事务 设置事务管理器 @Bean public PlatformTransactionManager transactionManager(DataSource dataSource) { DataSourceTransactionManager transactionManager = new DataSourceTransactionManager(); transactionManager.setDataSource(dataSource); return transactionManager; } 在Spring设置里打开注解事务驱动 //开起启用注解事务 @EnableTransactionManagement //事务简单例子 //本方法中有三个事务分别是 test_Tran() print_a() print_b() //在实际运行中print_a()和print_b()会加入到test_Tran()中形成一个新的事务, 从而实现print_a()和print_b()的同时成功或同时失败 @Transactional public void test_Tran(){ common.print_a(); //... common.print_b(); } class common { @Transactional public void print_a() { sout(&amp;#34;2333&amp;#34;); } @Transactional public void print_b() { sout(&amp;#34;12345&amp;#34;); } } 事务角色 事务管理员: 发起事务方, 在Spring中通常指代业务开始事务的方法
-事务协调员: 加入事务方, 在Spring中通常指数据层方法,也可以是业务层方法</description>
-    </item>
-    
-    <item>
-      <title>JavaWEB笔记-Spring整合mybatis</title>
-      <link>https://eoezora.github.io/posts/spring/spring-%E6%95%B4%E5%90%88mybatis/</link>
-      <pubDate>Thu, 06 Oct 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://eoezora.github.io/posts/spring/spring-%E6%95%B4%E5%90%88mybatis/</guid>
-      <description>Maven坐标 &amp;lt;!--德鲁伊连接池--&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;com.alibaba&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;druid&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;1.2.13-SNSAPSHOT&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;!--数据库连接组件--&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;mysql&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;mysql-connector-java&amp;lt;/artifactId&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;!--mybatis--&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.mybatis&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;mybatis&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;3.5.11&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;!--spring操作数据库需要的--&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.springframework&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring-jdbc&amp;lt;/artifactId&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;!--spring整合mybatis需要的--&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.mybatis&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;mybatis-spring&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;2.0.7&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; JDBC配置类 public class JDBCConfig { @Value(&amp;#34;${jdbc.url}&amp;#34;) private String url; @Value(&amp;#34;${jdbc.username}&amp;#34;) private String username; @Value(&amp;#34;${jdbc.password}&amp;#34;) private String password; private String driverClass = &amp;#34;com.mysql.jdbc.Driver&amp;#34;; @Bean public DataSource dataSource() { DruidDataSource druidDataSource = new DruidDataSource(); druidDataSource.setDriverClassName(driverClass); druidDataSource.setUrl(url); druidDataSource.setUsername(username); druidDataSource.setPassword(password); return druidDataSource; } } Mybatis配置类 public class MybatisConfig { @Bean public SqlSessionFactoryBean sqlSessionFactoryBean(DataSource dataSource) { //创建SqlSessionFactoryBean SqlSessionFactoryBean sfb = new SqlSessionFactoryBean(); //设置mybatis别名扫描 sfb.</description>
-    </item>
-    
-    <item>
-      <title>JavaWEB笔记-请求和响应</title>
-      <link>https://eoezora.github.io/posts/javaweb/javaweb-%E8%AF%B7%E6%B1%82%E5%92%8C%E5%93%8D%E5%BA%94/</link>
-      <pubDate>Thu, 06 Oct 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://eoezora.github.io/posts/javaweb/javaweb-%E8%AF%B7%E6%B1%82%E5%92%8C%E5%93%8D%E5%BA%94/</guid>
-      <description>介绍 Request: 获取请求数据 Response: 设置响应数据 Request 获取请求数据 一些需要了解的方法
-@Override protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException { // http://localhost:8080/EoeWebDemo_war/test?username=aas&amp;amp;password=1234567 // 请求行的数据 req.getMethod(); // GET 提交方法 req.getContextPath(); // EoeWebDemo_war 虚拟路径 req.getRequestURL(); // http://localhost:8080/EoeWebDemo_war/test req.getRequestURI(); // /EoeWebDemo_war/test req.getQueryString(); // username=aas&amp;amp;password=1234567 //请求头的数据, 根据请求头名称获取值 req.getHeader(&amp;#34;User-Agent&amp;#34;); //Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36 } @Override protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException { //获取POST请求体的数据 //获取流对象 // BufferedReader getReader()：获取字符输入流 只能操作字符数据 // ServletInputStream getInputStream()：获取字节输入流 可以操作所有类型数据 req.</description>
-    </item>
-    
-    <item>
       <title>JavaWEB笔记-过滤器</title>
       <link>https://eoezora.github.io/posts/javaweb/javaweb-filter%E8%BF%87%E6%BB%A4%E5%99%A8/</link>
       <pubDate>Thu, 06 Oct 2022 00:00:00 +0000</pubDate>
@@ -128,10 +128,29 @@ public class FilterDemo implements Filter { @Override public void init(FilterCon
     <item>
       <title>JavaWEB笔记-MyBatis-增删改查</title>
       <link>https://eoezora.github.io/posts/mybatis/mybatis-%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5/</link>
-      <pubDate>Tue, 04 Oct 2022 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 05 Oct 2022 00:00:00 +0000</pubDate>
       
       <guid>https://eoezora.github.io/posts/mybatis/mybatis-%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5/</guid>
       <description>增删改查例子 AccountMapper.xml &amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;UTF-8&amp;#34; ?&amp;gt; &amp;lt;!DOCTYPE mapper PUBLIC &amp;#34;-//mybatis.org//DTD Mapper 3.0//EN&amp;#34; &amp;#34;http://mybatis.org/dtd/mybatis-3-mapper.dtd&amp;#34;&amp;gt; &amp;lt;!-- namespace是映射接口的路径 --&amp;gt; &amp;lt;mapper namespace=&amp;#34;com.eoezora.mybatisDemo.mapper.AccountMapper&amp;#34;&amp;gt; &amp;lt;!-- 添加数据, 参数POJO -&amp;gt; EoeAccount --&amp;gt; &amp;lt;!-- 添加这两个 useGeneratedKeys=&amp;#34;true&amp;#34; keyProperty=&amp;#34;id&amp;#34; 属性在insert标签里可以返回主键 --&amp;gt; &amp;lt;insert id=&amp;#34;addAccount&amp;#34; useGeneratedKeys=&amp;#34;true&amp;#34; keyProperty=&amp;#34;id&amp;#34;/&amp;gt; &amp;lt;insert id=&amp;#34;addAccount&amp;#34; &amp;gt; INSERT INTO account (name, age, brithDay, location) &amp;lt;!-- 这里的名字要与POJO类力的变量名一致 --&amp;gt; VALUES (#{name},#{age},#{brithDay},#{location}); &amp;lt;/insert&amp;gt; &amp;lt;!-- 删除一条数据 --&amp;gt; &amp;lt;delete id=&amp;#34;delAccouintById&amp;#34;&amp;gt; DELETE FROM account WHERE id = #{id} &amp;lt;/delete&amp;gt; &amp;lt;!-- 删除多条数据 --&amp;gt; &amp;lt;delete id=&amp;#34;delAccouintByIds&amp;#34;&amp;gt; DELETE FROM account WHERE id in &amp;lt;!</description>
+    </item>
+    
+    <item>
+      <title>JavaWEB笔记-MyBatis配置文件</title>
+      <link>https://eoezora.github.io/posts/mybatis/mybatis-%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Wed, 05 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://eoezora.github.io/posts/mybatis/mybatis-%E9%85%8D%E7%BD%AE/</guid>
+      <description>简介</description>
+    </item>
+    
+    <item>
+      <title>JavaWEB笔记-请求和响应</title>
+      <link>https://eoezora.github.io/posts/javaweb/javaweb-%E8%AF%B7%E6%B1%82%E5%92%8C%E5%93%8D%E5%BA%94/</link>
+      <pubDate>Wed, 05 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://eoezora.github.io/posts/javaweb/javaweb-%E8%AF%B7%E6%B1%82%E5%92%8C%E5%93%8D%E5%BA%94/</guid>
+      <description>介绍 Request: 获取请求数据 Response: 设置响应数据 Request 获取请求数据 一些需要了解的方法
+@Override protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException { // http://localhost:8080/EoeWebDemo_war/test?username=aas&amp;amp;password=1234567 // 请求行的数据 req.getMethod(); // GET 提交方法 req.getContextPath(); // EoeWebDemo_war 虚拟路径 req.getRequestURL(); // http://localhost:8080/EoeWebDemo_war/test req.getRequestURI(); // /EoeWebDemo_war/test req.getQueryString(); // username=aas&amp;amp;password=1234567 //请求头的数据, 根据请求头名称获取值 req.getHeader(&amp;#34;User-Agent&amp;#34;); //Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36 } @Override protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException { //获取POST请求体的数据 //获取流对象 // BufferedReader getReader()：获取字符输入流 只能操作字符数据 // ServletInputStream getInputStream()：获取字节输入流 可以操作所有类型数据 req.</description>
     </item>
     
     <item>
@@ -143,15 +162,6 @@ public class FilterDemo implements Filter { @Override public void init(FilterCon
       <description>简介: 一个用于数据持久层的框架
 基本配置 //mybatis配置文件 String resource = &amp;#34;mybatis-config.xml&amp;#34;; InputStream inputStream = Resources.getResourceAsStream(resource); SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream); try (SqlSession session = sqlSessionFactory.openSession()) { //此处是直接调用方法进行操作，建议使用代理开发 List&amp;lt;EoeAccount&amp;gt; datas = session.selectList(&amp;#34;test.selectAll&amp;#34;); datas.forEach(System.out::println); session.close(); } Mybatis配置文件(mybatis-config.xml)
 &amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;UTF-8&amp;#34; ?&amp;gt; &amp;lt;!DOCTYPE configuration PUBLIC &amp;#34;-//mybatis.org//DTD Config 3.0//EN&amp;#34; &amp;#34;https://mybatis.org/dtd/mybatis-3-config.dtd&amp;#34;&amp;gt; &amp;lt;configuration&amp;gt; &amp;lt;environments default=&amp;#34;development&amp;#34;&amp;gt; &amp;lt;environment id=&amp;#34;development&amp;#34;&amp;gt; &amp;lt;transactionManager type=&amp;#34;JDBC&amp;#34;/&amp;gt; &amp;lt;dataSource type=&amp;#34;POOLED&amp;#34;&amp;gt; &amp;lt;property name=&amp;#34;driver&amp;#34; value=&amp;#34;com.mysql.cj.jdbc.Driver&amp;#34;/&amp;gt; &amp;lt;property name=&amp;#34;url&amp;#34; value=&amp;#34;jdbc:mysql://localhost:3306/eoezora?useSSL=false&amp;amp;amp;allowPublicKeyRetrieval=true&amp;#34;/&amp;gt; &amp;lt;property name=&amp;#34;username&amp;#34; value=&amp;#34;root&amp;#34;/&amp;gt; &amp;lt;property name=&amp;#34;password&amp;#34; value=&amp;#34;root&amp;#34;/&amp;gt; &amp;lt;/dataSource&amp;gt; &amp;lt;/environment&amp;gt; &amp;lt;/environments&amp;gt; &amp;lt;mappers&amp;gt; &amp;lt;mapper resource=&amp;#34;mappers/TestDemoMapper.xml&amp;#34;/&amp;gt; &amp;lt;/mappers&amp;gt; &amp;lt;/configuration&amp;gt; SQL语句</description>
-    </item>
-    
-    <item>
-      <title>JavaWEB笔记-MyBatis配置文件</title>
-      <link>https://eoezora.github.io/posts/mybatis/mybatis-%E9%85%8D%E7%BD%AE/</link>
-      <pubDate>Tue, 04 Oct 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://eoezora.github.io/posts/mybatis/mybatis-%E9%85%8D%E7%BD%AE/</guid>
-      <description>简介</description>
     </item>
     
     <item>
