@@ -9,7 +9,31 @@
       <link>https://eoezora.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 16 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://eoezora.github.io/tags/spring/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 23 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://eoezora.github.io/tags/spring/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>JavaWEB笔记-Spring异常处理</title>
+      <link>https://eoezora.github.io/posts/spring/spring-%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/</link>
+      <pubDate>Sun, 23 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://eoezora.github.io/posts/spring/spring-%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/</guid>
+      <description>异常处理器 出现异常现象的常见位置与诱因如下:
+框架内部抛出的异常: 使用不合规导致
+数据层抛出的异常: 因外部服务器故障导致(如: 服务器访问超时)
+业务层抛出的异常: 因业务逻辑编写错误导致(如: 遍历业务编写不当, 导致索引异常)
+表现层抛出的异常: 因数据收集, 检验等规则导致(如: 不匹配的数据类型)
+工具类抛出的异常: 因工具类编写不严谨(如: 必要的释放的链接长期未释放等)
+所有异常均抛到表现层进行处理
+定义一个异常处理器 //与表现层的注解一致, 我使用的时rest风格的所以使用下面那个 @RestControllerAdvice //@ControllerAdvice @RestControllerAdvice public class UserExceptionAdvice { /** * 括号里是要处理的异常类型 * 当出现异常时, 会调用下面这个方法进行处理 **/ @ExceptionHandler(Exception.class) public Result&amp;lt;Object&amp;gt; doException(Exception e) { return Result.error(&amp;#34;错误, 出现异常&amp;#34;); } } 项目异常处理方案 业务异常(BusinessException) 规范的用户行为产生的异常
+不规范的用户行为操作产生的异常
+解决方案: 发送对应消息给用户, 提醒规范操作
+系统异常(SystemException) 项目运行过程中可预计但不可避免的异常
+解决方案: 发送固定消息给用户.安抚用户, 发送特定消息给运维人员,提醒维护, 记录日志
+其他异常(Exception) 开发者未预期到的异常
+解决方案: 发送固定消息给用户.安抚用户, 发送特定消息给运维人员,提醒维护, 记录日志
+项目中的使用 自定义异常
+/** * 定义一个自定义异常 * code 是状态码 */ public class BusinessException extends RuntimeException{ private Integer code; public BusinessException() { } public BusinessException(int code, String message) { super(message); this.</description>
+    </item>
+    
     <item>
       <title>JavaWEB笔记-SpringMVC</title>
       <link>https://eoezora.github.io/posts/spring/spring-mvc/</link>
