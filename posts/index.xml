@@ -58,6 +58,16 @@ Spring事务作用: 在数据层或业务层的一些列数据库操作同时成
     </item>
     
     <item>
+      <title>JavaWEB笔记-Spring拦截器</title>
+      <link>https://eoezora.github.io/posts/spring/spring-%E6%8B%A6%E6%88%AA%E5%99%A8/</link>
+      <pubDate>Thu, 13 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://eoezora.github.io/posts/spring/spring-%E6%8B%A6%E6%88%AA%E5%99%A8/</guid>
+      <description>入门案例 定义一个拦截器Bean,实现HandlerInterceptor接口
+@Component public class UserInterceptor implements HandlerInterceptor { //拦截之前触发 @Override public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception { System.out.println(&amp;#34;preHandle&amp;#34;); //返回false表示不放行 中止原始操作, 也会影响拦截器链的运行 return true; } //拦截之后触发 @Override public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception { System.out.println(&amp;#34;postHandle&amp;#34;); HandlerInterceptor.super.postHandle(request, response, handler, modelAndView); } //拦截完成后触发 @Override public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception { System.out.println(&amp;#34;afterCompletion&amp;#34;); HandlerInterceptor.super.afterCompletion(request, response, handler, ex); } } 定义配置类, 继承WebMvcConfigurationSupport实现addInterceptors()方法 或者 在SpringMvcConfig里实现WebMvcConfigurer接口</description>
+    </item>
+    
+    <item>
       <title>JavaWEB笔记-Spring整合mybatis</title>
       <link>https://eoezora.github.io/posts/spring/spring-%E6%95%B4%E5%90%88mybatis/</link>
       <pubDate>Thu, 13 Oct 2022 00:00:00 +0000</pubDate>
