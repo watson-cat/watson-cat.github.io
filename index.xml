@@ -58,6 +58,15 @@ Spring事务作用: 在数据层或业务层的一些列数据库操作同时成
     </item>
     
     <item>
+      <title>JavaWEB笔记-SpringBoot</title>
+      <link>https://eoezora.github.io/posts/spring/spring-boot/</link>
+      <pubDate>Thu, 13 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://eoezora.github.io/posts/spring/spring-boot/</guid>
+      <description>Maven坐标 &amp;lt;!--德鲁伊连接池--&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;com.alibaba&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;druid&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;1.2.13-SNSAPSHOT&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; </description>
+    </item>
+    
+    <item>
       <title>JavaWEB笔记-Spring拦截器</title>
       <link>https://eoezora.github.io/posts/spring/spring-%E6%8B%A6%E6%88%AA%E5%99%A8/</link>
       <pubDate>Thu, 13 Oct 2022 00:00:00 +0000</pubDate>
