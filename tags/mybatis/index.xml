@@ -9,7 +9,17 @@
       <link>https://eoezora.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 16 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://eoezora.github.io/tags/mybatis/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 27 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://eoezora.github.io/tags/mybatis/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>JavaWEB笔记-MyBatis-Plus</title>
+      <link>https://eoezora.github.io/posts/mybatis-plus/mybatis-plus/</link>
+      <pubDate>Thu, 27 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://eoezora.github.io/posts/mybatis-plus/mybatis-plus/</guid>
+      <description>快速使用 ​	MybatisPlus为我们提供了非常强大的接口来供我们对数据库进行增删改查操作,我们无需写sql语句,只需调用对应接口即可.
+引入maven坐标 &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;com.baomidou&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;mybatis-plus-boot-starter&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;xxxx&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; 编写实体类 @Data //@TableName 指定这个实体类在操作时影响哪张表 @TableName(&amp;#34;tb_users&amp;#34;) public class UserEntity { private int id; private String username; private String password; private int age; private int telephone; private int duties; } 编写Mapper接口 @Mapper public interface UserMapper extends BaseMapper&amp;lt;UserEntity&amp;gt; { //只需要让我们的Mapper接口继承 BaseMapper并给他对应实体类即可 } 使用 @Autowired private UserMapper userMapper; @Override public void addTestData() { UserEntity ue = new UserEntity(); ue.setUsername(&amp;#34;eoezora&amp;#34;); ue.setPassword(&amp;#34;a-test-password&amp;#34;); ue.setAge(24); ue.setTelephone(1145141919); ue.setDuties(1); userMapper.insert(ue); } @Override public List&amp;lt;UserEntity&amp;gt; getAllData() { return userMapper.</description>
+    </item>
+    
     <item>
       <title>JavaWEB笔记-SpringMVC</title>
       <link>https://eoezora.github.io/posts/spring/spring-mvc/</link>
