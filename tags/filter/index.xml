@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Filter on 学習のメモ</title>
-    <link>https://eoezora.github.io/tags/filter/</link>
-    <description>Recent content in Filter on 学習のメモ</description>
+    <title>Filter on 🐈Watson-Cat Note</title>
+    <link>https://watson-cat.github.io/tags/filter/</link>
+    <description>Recent content in Filter on 🐈Watson-Cat Note</description>
     <image>
-      <url>https://eoezora.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://eoezora.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://watson-cat.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://watson-cat.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 06 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://eoezora.github.io/tags/filter/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 06 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://watson-cat.github.io/tags/filter/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>JavaWEB笔记-过滤器</title>
-      <link>https://eoezora.github.io/posts/javaweb/javaweb-filter%E8%BF%87%E6%BB%A4%E5%99%A8/</link>
+      <link>https://watson-cat.github.io/posts/javaweb/javaweb-filter%E8%BF%87%E6%BB%A4%E5%99%A8/</link>
       <pubDate>Thu, 06 Oct 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://eoezora.github.io/posts/javaweb/javaweb-filter%E8%BF%87%E6%BB%A4%E5%99%A8/</guid>
+      <guid>https://watson-cat.github.io/posts/javaweb/javaweb-filter%E8%BF%87%E6%BB%A4%E5%99%A8/</guid>
       <description>概念 Filter过滤器,是JavaWeb三大组件之一(Servlet, Filter, Listener) 过滤器可以把资源拦截下来,从而实现一些需求 过滤器一般完成一些通用操作,如访问权限控制, 统一编码处理, 铭感字符处理等 快速入门 定义类,实现Filter接口，重写所有方法
 public class FilterDemo implements Filter { @Override public void init(FilterConfig filterConfig) throws ServletException { Filter.super.init(filterConfig); } @Override public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException { } @Override public void destroy() { Filter.super.destroy(); } } 配置Filter拦截路径, 使用@WebFilter注解
 @WebFilter(&amp;#34;/*&amp;#34;) //表示拦截所有访问 public class FilterDemo implements Filter { } 放行

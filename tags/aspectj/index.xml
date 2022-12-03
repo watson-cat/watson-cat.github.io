@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Aspectj on 学習のメモ</title>
-    <link>https://eoezora.github.io/tags/aspectj/</link>
-    <description>Recent content in Aspectj on 学習のメモ</description>
+    <title>Aspectj on 🐈Watson-Cat Note</title>
+    <link>https://watson-cat.github.io/tags/aspectj/</link>
+    <description>Recent content in Aspectj on 🐈Watson-Cat Note</description>
     <image>
-      <url>https://eoezora.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://eoezora.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://watson-cat.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://watson-cat.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 11 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://eoezora.github.io/tags/aspectj/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 11 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://watson-cat.github.io/tags/aspectj/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>JavaWEB笔记-Spring-AOP</title>
-      <link>https://eoezora.github.io/posts/spring/spring-aop%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/</link>
+      <link>https://watson-cat.github.io/posts/spring/spring-aop%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/</link>
       <pubDate>Tue, 11 Oct 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://eoezora.github.io/posts/spring/spring-aop%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/</guid>
+      <guid>https://watson-cat.github.io/posts/spring/spring-aop%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/</guid>
       <description>简介 AOP: 面向切面编程, 一种编程范式,指导开发者如何组织程序结构
 作用: 在不惊动原始设计的基础上进行功能增强
 Spring理念: 无入侵式\无侵入式 编程

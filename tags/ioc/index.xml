@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>ioc on 学習のメモ</title>
-    <link>https://eoezora.github.io/tags/ioc/</link>
-    <description>Recent content in ioc on 学習のメモ</description>
+    <title>ioc on 🐈Watson-Cat Note</title>
+    <link>https://watson-cat.github.io/tags/ioc/</link>
+    <description>Recent content in ioc on 🐈Watson-Cat Note</description>
     <image>
-      <url>https://eoezora.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://eoezora.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://watson-cat.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://watson-cat.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 09 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://eoezora.github.io/tags/ioc/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 09 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://watson-cat.github.io/tags/ioc/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>JavaWEB笔记-Spring核心容器</title>
-      <link>https://eoezora.github.io/posts/spring/spring-ioc%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/</link>
+      <link>https://watson-cat.github.io/posts/spring/spring-ioc%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/</link>
       <pubDate>Sun, 09 Oct 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://eoezora.github.io/posts/spring/spring-ioc%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/</guid>
+      <guid>https://watson-cat.github.io/posts/spring/spring-ioc%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/</guid>
       <description>控制反转Ioc 使用对象时,由主动new产生对象转换为由外部提供对象, 此过程中创建对象控制权由程序转移到外部,此思想称为控制反转
 Spring对Ioc思想的实现
 Spring提供了一个容器,称为Ioc容器，用来充当Ioc思想中的&amp;quot;外部&amp;quot; Ioc容器负责对象创建,初始化等一系工作, 被创建或被管理的对象在Ioc容器中被称为Bean DI(Dependency Injection): 依赖注入

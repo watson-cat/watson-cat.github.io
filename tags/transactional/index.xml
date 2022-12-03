@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>transactional on 学習のメモ</title>
-    <link>https://eoezora.github.io/tags/transactional/</link>
-    <description>Recent content in transactional on 学習のメモ</description>
+    <title>transactional on 🐈Watson-Cat Note</title>
+    <link>https://watson-cat.github.io/tags/transactional/</link>
+    <description>Recent content in transactional on 🐈Watson-Cat Note</description>
     <image>
-      <url>https://eoezora.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://eoezora.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://watson-cat.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://watson-cat.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 14 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://eoezora.github.io/tags/transactional/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 14 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://watson-cat.github.io/tags/transactional/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>JavaWEB笔记-Spring事务</title>
-      <link>https://eoezora.github.io/posts/spring/spring-%E4%BA%8B%E5%8A%A1/</link>
+      <link>https://watson-cat.github.io/posts/spring/spring-%E4%BA%8B%E5%8A%A1/</link>
       <pubDate>Fri, 14 Oct 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://eoezora.github.io/posts/spring/spring-%E4%BA%8B%E5%8A%A1/</guid>
+      <guid>https://watson-cat.github.io/posts/spring/spring-%E4%BA%8B%E5%8A%A1/</guid>
       <description>简介 事务作用: 在数据层保证一系列数据库操作同时成功或同时失败
 Spring事务作用: 在数据层或业务层的一些列数据库操作同时成功或同时失败
 例子 通过相同的数据源DataSource来管理sql的事务

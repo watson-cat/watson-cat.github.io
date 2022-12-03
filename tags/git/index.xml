@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>git on 🐈Watson-Cat Note</title>
+    <link>https://watson-cat.github.io/tags/git/</link>
+    <description>Recent content in git on 🐈Watson-Cat Note</description>
+    <image>
+      <url>https://watson-cat.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://watson-cat.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sat, 03 Dec 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://watson-cat.github.io/tags/git/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>GIT学习笔记</title>
+      <link>https://watson-cat.github.io/posts/git/git%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Sat, 03 Dec 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://watson-cat.github.io/posts/git/git%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
+      <description>一些概念 工作区: 包含**.git**文件夹的目录就是工作区，也就是你的项目文件夹
+暂存区: .git文件夹中的index文件是暂存区,也叫做stage，是临时保存修改文件的地方
+版本库: .git文件夹是版本库，版本库中存储了许多配置信息，日志信息，文件版本等
+流程: 工作区发生改变后使用命令[ git add . ] 将修改临时保存到暂存区, 使用命令 [ git commit -m &amp;ldquo;提交信息&amp;rdquo;] 提交到版本库
+文件状态 untracked 未跟踪 [未被纳入版本控制] tracked [已被纳入版本控制] Unmodified 未修改状态 Modified 已修改状态 Staged 已暂存状态 常用命令 全局设置 //全局设置 //设置用户名 git config --global user.name &amp;#34;用户名&amp;#34; //设置用户邮箱 git config --global user.email &amp;#34;邮箱地址&amp;#34; 常用 //查看文件状态 git status //将文件的修改添加到暂存区 git add //将暂存区的文件取消暂存或者切换到指定版本 git reset //将暂存区的文件修改提交到版本区 git commit //查看日志 git log </description>
+    </item>
+    
+  </channel>
+</rss>

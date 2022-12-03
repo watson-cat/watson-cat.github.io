@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>spring on 学習のメモ</title>
-    <link>https://eoezora.github.io/tags/spring/</link>
-    <description>Recent content in spring on 学習のメモ</description>
+    <title>spring on 🐈Watson-Cat Note</title>
+    <link>https://watson-cat.github.io/tags/spring/</link>
+    <description>Recent content in spring on 🐈Watson-Cat Note</description>
     <image>
-      <url>https://eoezora.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://eoezora.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://watson-cat.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://watson-cat.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 23 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://eoezora.github.io/tags/spring/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 23 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://watson-cat.github.io/tags/spring/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>JavaWEB笔记-Spring异常处理</title>
-      <link>https://eoezora.github.io/posts/spring/spring-%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/</link>
+      <link>https://watson-cat.github.io/posts/spring/spring-%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/</link>
       <pubDate>Sun, 23 Oct 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://eoezora.github.io/posts/spring/spring-%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/</guid>
+      <guid>https://watson-cat.github.io/posts/spring/spring-%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/</guid>
       <description>异常处理器 出现异常现象的常见位置与诱因如下:
 框架内部抛出的异常: 使用不合规导致
 数据层抛出的异常: 因外部服务器故障导致(如: 服务器访问超时)
@@ -36,20 +36,20 @@
     
     <item>
       <title>JavaWEB笔记-SpringMVC</title>
-      <link>https://eoezora.github.io/posts/spring/spring-mvc/</link>
+      <link>https://watson-cat.github.io/posts/spring/spring-mvc/</link>
       <pubDate>Sun, 16 Oct 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://eoezora.github.io/posts/spring/spring-mvc/</guid>
+      <guid>https://watson-cat.github.io/posts/spring/spring-mvc/</guid>
       <description>快速入门 SpringMVC与Tomcat整合 需要注意的是Tomcat 10与spring mvc不兼容. 请使用tomcat 8
 导入maven坐标 &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;javax.servlet&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;javax-servlet-api&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;4.0.1&amp;lt;/version&amp;gt; &amp;lt;scope&amp;gt;provided&amp;lt;/scope&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.springframework&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring-webmvc&amp;lt;/artifactId&amp;gt; &amp;lt;/dependency&amp;gt; 创建控制类 //@Controller 注解表示这是一个Spring Bean @Controller public class AccountController { //访问入口 @RequestMapping(&amp;#34;/sign-in&amp;#34;) //设置返回值为响应内容 @ResponseBody public String OnAccountSignIn() { System.out.println(&amp;#34;Account: Sign In&amp;#34;); return &amp;#34;{&amp;#39;msg&amp;#39;:&amp;#39;success&amp;#39;}&amp;#34;; } } 创建Spring配置类 /** * Spring配置类 * 设置组件扫描路径,加载Bean */ @Configuration @ComponentScan(&amp;#34;com.eoezora&amp;#34;) public class SpringConfig { } 创建SpringMVC配置 /** * 定义一个Servlet容器启动的配置类,在里面加载Spring的配置 */ public class ServletContainersInitConfig extends AbstractDispatcherServletInitializer { /** * 加载Spring mvc 容器配置 * SpringMVC的配置 */ @Override protected WebApplicationContext createServletApplicationContext() { AnnotationConfigWebApplicationContext context = new AnnotationConfigWebApplicationContext(); //SpringMVConfig.</description>
     </item>
     
     <item>
       <title>JavaWEB笔记-Spring事务</title>
-      <link>https://eoezora.github.io/posts/spring/spring-%E4%BA%8B%E5%8A%A1/</link>
+      <link>https://watson-cat.github.io/posts/spring/spring-%E4%BA%8B%E5%8A%A1/</link>
       <pubDate>Fri, 14 Oct 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://eoezora.github.io/posts/spring/spring-%E4%BA%8B%E5%8A%A1/</guid>
+      <guid>https://watson-cat.github.io/posts/spring/spring-%E4%BA%8B%E5%8A%A1/</guid>
       <description>简介 事务作用: 在数据层保证一系列数据库操作同时成功或同时失败
 Spring事务作用: 在数据层或业务层的一些列数据库操作同时成功或同时失败
 例子 通过相同的数据源DataSource来管理sql的事务
@@ -59,38 +59,38 @@ Spring事务作用: 在数据层或业务层的一些列数据库操作同时成
     
     <item>
       <title>JavaWEB笔记-SpringBoot</title>
-      <link>https://eoezora.github.io/posts/spring/spring-boot/</link>
+      <link>https://watson-cat.github.io/posts/spring/spring-boot/</link>
       <pubDate>Thu, 13 Oct 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://eoezora.github.io/posts/spring/spring-boot/</guid>
+      <guid>https://watson-cat.github.io/posts/spring/spring-boot/</guid>
       <description>Maven坐标 &amp;lt;!--德鲁伊连接池--&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;com.alibaba&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;druid&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;1.2.13-SNSAPSHOT&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; </description>
     </item>
     
     <item>
       <title>JavaWEB笔记-Spring拦截器</title>
-      <link>https://eoezora.github.io/posts/spring/spring-%E6%8B%A6%E6%88%AA%E5%99%A8/</link>
+      <link>https://watson-cat.github.io/posts/spring/spring-%E6%8B%A6%E6%88%AA%E5%99%A8/</link>
       <pubDate>Thu, 13 Oct 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://eoezora.github.io/posts/spring/spring-%E6%8B%A6%E6%88%AA%E5%99%A8/</guid>
+      <guid>https://watson-cat.github.io/posts/spring/spring-%E6%8B%A6%E6%88%AA%E5%99%A8/</guid>
       <description>入门案例 定义一个拦截器Bean,实现HandlerInterceptor接口
 @Component public class UserInterceptor implements HandlerInterceptor { //拦截之前触发 @Override public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception { System.out.println(&amp;#34;preHandle&amp;#34;); //返回false表示不放行 中止原始操作, 也会影响拦截器链的运行 return true; } //拦截之后触发 @Override public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception { System.out.println(&amp;#34;postHandle&amp;#34;); HandlerInterceptor.super.postHandle(request, response, handler, modelAndView); } //拦截完成后触发 @Override public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception { System.out.println(&amp;#34;afterCompletion&amp;#34;); HandlerInterceptor.super.afterCompletion(request, response, handler, ex); } } 定义配置类, 继承WebMvcConfigurationSupport实现addInterceptors()方法 或者 在SpringMvcConfig里实现WebMvcConfigurer接口</description>
     </item>
     
     <item>
       <title>JavaWEB笔记-Spring整合mybatis</title>
-      <link>https://eoezora.github.io/posts/spring/spring-%E6%95%B4%E5%90%88mybatis/</link>
+      <link>https://watson-cat.github.io/posts/spring/spring-%E6%95%B4%E5%90%88mybatis/</link>
       <pubDate>Thu, 13 Oct 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://eoezora.github.io/posts/spring/spring-%E6%95%B4%E5%90%88mybatis/</guid>
+      <guid>https://watson-cat.github.io/posts/spring/spring-%E6%95%B4%E5%90%88mybatis/</guid>
       <description>Maven坐标 &amp;lt;!--德鲁伊连接池--&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;com.alibaba&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;druid&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;1.2.13-SNSAPSHOT&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;!--数据库连接组件--&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;mysql&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;mysql-connector-java&amp;lt;/artifactId&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;!--mybatis--&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.mybatis&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;mybatis&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;3.5.11&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;!--spring操作数据库需要的--&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.springframework&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring-jdbc&amp;lt;/artifactId&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;!--spring整合mybatis需要的--&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.mybatis&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;mybatis-spring&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;2.0.7&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; JDBC配置类 public class JDBCConfig { @Value(&amp;#34;${jdbc.url}&amp;#34;) private String url; @Value(&amp;#34;${jdbc.username}&amp;#34;) private String username; @Value(&amp;#34;${jdbc.password}&amp;#34;) private String password; private String driverClass = &amp;#34;com.mysql.jdbc.Driver&amp;#34;; @Bean public DataSource dataSource() { DruidDataSource druidDataSource = new DruidDataSource(); druidDataSource.setDriverClassName(driverClass); druidDataSource.setUrl(url); druidDataSource.setUsername(username); druidDataSource.setPassword(password); return druidDataSource; } } Mybatis配置类 public class MybatisConfig { @Bean public SqlSessionFactoryBean sqlSessionFactoryBean(DataSource dataSource) { //创建SqlSessionFactoryBean SqlSessionFactoryBean sfb = new SqlSessionFactoryBean(); //设置mybatis别名扫描 sfb.</description>
     </item>
     
     <item>
       <title>JavaWEB笔记-Spring-AOP</title>
-      <link>https://eoezora.github.io/posts/spring/spring-aop%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/</link>
+      <link>https://watson-cat.github.io/posts/spring/spring-aop%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/</link>
       <pubDate>Tue, 11 Oct 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://eoezora.github.io/posts/spring/spring-aop%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/</guid>
+      <guid>https://watson-cat.github.io/posts/spring/spring-aop%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/</guid>
       <description>简介 AOP: 面向切面编程, 一种编程范式,指导开发者如何组织程序结构
 作用: 在不惊动原始设计的基础上进行功能增强
 Spring理念: 无入侵式\无侵入式 编程
@@ -106,10 +106,10 @@ Spring理念: 无入侵式\无侵入式 编程
     
     <item>
       <title>JavaWEB笔记-Spring核心容器</title>
-      <link>https://eoezora.github.io/posts/spring/spring-ioc%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/</link>
+      <link>https://watson-cat.github.io/posts/spring/spring-ioc%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/</link>
       <pubDate>Sun, 09 Oct 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://eoezora.github.io/posts/spring/spring-ioc%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/</guid>
+      <guid>https://watson-cat.github.io/posts/spring/spring-ioc%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/</guid>
       <description>控制反转Ioc 使用对象时,由主动new产生对象转换为由外部提供对象, 此过程中创建对象控制权由程序转移到外部,此思想称为控制反转
 Spring对Ioc思想的实现
 Spring提供了一个容器,称为Ioc容器，用来充当Ioc思想中的&amp;quot;外部&amp;quot; Ioc容器负责对象创建,初始化等一系工作, 被创建或被管理的对象在Ioc容器中被称为Bean DI(Dependency Injection): 依赖注入

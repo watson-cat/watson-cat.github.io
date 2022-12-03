@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>springMVC on 学習のメモ</title>
-    <link>https://eoezora.github.io/tags/springmvc/</link>
-    <description>Recent content in springMVC on 学習のメモ</description>
+    <title>springMVC on 🐈Watson-Cat Note</title>
+    <link>https://watson-cat.github.io/tags/springmvc/</link>
+    <description>Recent content in springMVC on 🐈Watson-Cat Note</description>
     <image>
-      <url>https://eoezora.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://eoezora.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://watson-cat.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://watson-cat.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 16 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://eoezora.github.io/tags/springmvc/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 16 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://watson-cat.github.io/tags/springmvc/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>JavaWEB笔记-SpringMVC</title>
-      <link>https://eoezora.github.io/posts/spring/spring-mvc/</link>
+      <link>https://watson-cat.github.io/posts/spring/spring-mvc/</link>
       <pubDate>Sun, 16 Oct 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://eoezora.github.io/posts/spring/spring-mvc/</guid>
+      <guid>https://watson-cat.github.io/posts/spring/spring-mvc/</guid>
       <description>快速入门 SpringMVC与Tomcat整合 需要注意的是Tomcat 10与spring mvc不兼容. 请使用tomcat 8
 导入maven坐标 &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;javax.servlet&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;javax-servlet-api&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;4.0.1&amp;lt;/version&amp;gt; &amp;lt;scope&amp;gt;provided&amp;lt;/scope&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.springframework&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring-webmvc&amp;lt;/artifactId&amp;gt; &amp;lt;/dependency&amp;gt; 创建控制类 //@Controller 注解表示这是一个Spring Bean @Controller public class AccountController { //访问入口 @RequestMapping(&amp;#34;/sign-in&amp;#34;) //设置返回值为响应内容 @ResponseBody public String OnAccountSignIn() { System.out.println(&amp;#34;Account: Sign In&amp;#34;); return &amp;#34;{&amp;#39;msg&amp;#39;:&amp;#39;success&amp;#39;}&amp;#34;; } } 创建Spring配置类 /** * Spring配置类 * 设置组件扫描路径,加载Bean */ @Configuration @ComponentScan(&amp;#34;com.eoezora&amp;#34;) public class SpringConfig { } 创建SpringMVC配置 /** * 定义一个Servlet容器启动的配置类,在里面加载Spring的配置 */ public class ServletContainersInitConfig extends AbstractDispatcherServletInitializer { /** * 加载Spring mvc 容器配置 * SpringMVC的配置 */ @Override protected WebApplicationContext createServletApplicationContext() { AnnotationConfigWebApplicationContext context = new AnnotationConfigWebApplicationContext(); //SpringMVConfig.</description>
     </item>
