@@ -16,7 +16,7 @@
       <pubDate>Sat, 03 Dec 2022 00:00:00 +0000</pubDate>
       
       <guid>https://watson-cat.github.io/posts/git/git%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
-      <description>一些概念 工作区: 包含**.git**文件夹的目录就是工作区，也就是你的项目文件夹
+      <description>一些概念 工作区: 包含.git文件夹的目录就是工作区，也就是你的项目文件夹
 暂存区: .git文件夹中的index文件是暂存区,也叫做stage，是临时保存修改文件的地方
 版本库: .git文件夹是版本库，版本库中存储了许多配置信息，日志信息，文件版本等
 流程: 工作区发生改变后使用命令[ git add . ] 将修改临时保存到暂存区, 使用命令 [ git commit -m &amp;ldquo;提交信息&amp;rdquo;] 提交到版本库
