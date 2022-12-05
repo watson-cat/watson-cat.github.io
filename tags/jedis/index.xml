@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>jedis on 🐈Watson-Cat Note</title>
+    <link>https://watson-cat.github.io/tags/jedis/</link>
+    <description>Recent content in jedis on 🐈Watson-Cat Note</description>
+    <image>
+      <url>https://watson-cat.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://watson-cat.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sun, 04 Dec 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://watson-cat.github.io/tags/jedis/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>redis学习笔记</title>
+      <link>https://watson-cat.github.io/posts/redis/redis%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Sun, 04 Dec 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://watson-cat.github.io/posts/redis/redis%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
+      <description>数据类型 Redis存储的时key-value结构的数据, 其中key是字符串类型, value有常用的5种数据类型
+数据类型 string 字符串 普通字符串 hash 哈希 适合存储对象 list 列表 按照插入顺序排序, 可以重复 set 集合 无序集合, 没有重复元素 sorted set 有序集合 有序集合, 没有重复元素 常用命令 字符串(string)操作 SET [key] [value] # 设置指定key的值 GET [key] # 获取指定key的值 SETEX [key] [seconds] [value] # 设置指定key的值, 并设置过期时间 seconds 秒 SETNX [key] [value] # 只有key不存在时设置key的值 哈希(hash)操作 HSET [key] [field] [value] # 设置哈希表 key 中的 field 的值为value HGET [key] [field] # 获取哈希表中指定字段[field]的值 HDEL [key] [field] # 删除哈希表中的指定字段 HKEYS [key] # 获取哈希表所有字段 HVALS [key] # 获取哈希表中所有值 HGETALL [key] # 获取哈希表中所有字段跟值 列表(list)操作 LPUSH [key] [value.</description>
+    </item>
+    
+  </channel>
+</rss>
